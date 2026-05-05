@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>🚨🔥 يوم في حياة فني صيانة</title>
+
+<style>
+body {
+font-family: Arial;
+background: radial-gradient(circle,#020617,#000);
+color: white;
+text-align: center;
+padding: 20px;
+overflow-x:hidden;
+}
+
+#card {
+background:#0f172a;
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 30px rgba(255,0,0,0.3);
+}
+
+button {
+display:block;
+margin:10px auto;
+padding:14px;
+width:90%;
+border:none;
+border-radius:14px;
+font-size:16px;
+cursor:pointer;
+}
+
+.good{background:#22c55e;}
+.fix{background:#f59e0b;}
+.bad{background:#ef4444;}
+
+#npc {margin-top:10px; opacity:0.8;}
+#timer {margin-top:10px; font-size:18px; color:#f87171;}
+
+.progress {height:10px; background:#111; border-radius:10px;}
+.bar {height:10px; background:#ef4444; width:0%; border-radius:10px;}
+
+.shake {
+animation: shake 0.3s;
+}
+@keyframes shake {
+0%{transform:translate(2px,2px);}
+25%{transform:translate(-2px,2px);}
+50%{transform:translate(2px,-2px);}
+75%{transform:translate(-2px,-2px);}
+100%{transform:translate(0,0);}
+}
+</style>
+</head>
+
+<body>
+
+<h2>🚨🔥 يوم في حياة فني صيانة</h2>
+<div class="progress"><div id="bar" class="bar"></div></div>
+
+<div id="card">
+<p id="scenario"></p>
+<div id="choices"></div>
+<p id="timer">⏳ 5</p>
+<p id="npc">🤖: ركّز… الوقت يمشي 😈</p>
+</div>
+
+<audio id="alarm" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
+<audio id="boom" src="https://actions.google.com/sounds/v1/explosions/explosion.ogg"></audio>
+
+<script>
+
+let step=0;
+let chaos=0;
+let time=5;
+let timerInt;
+
+const scenarios=[
+
+{t:"💧 مكيف يصب موية!",c:[
+["بلغ الصيانة","good"],
+["شاش طبي","fix"],
+["فك المكيف","bad"]
+]},
+
+{t:"⚡ فيش يشرر!",c:[
+["افصل الكهرباء","good"],
+["اضربه","fix"],
+["امسكه","bad"]
+]},
+
+{t:"🚰 حنفية انفجرت!",c:[
+["قفل المحبس","good"],
+["لاصق","fix"],
+["اهرب","bad"]
+]},
+
+{t:"💡 لمبة ديسكو!",c:[
+["بلغ","good"],
+["طنش","fix"],
+["تفكها","bad"]
+]},
+
+{t:"🪑 كرسي يهتز!",c:[
+["بلغ","good"],
+["تربطه","fix"],
+["تكسره","bad"]
+]}
+];
+
+function load(){
+let s=scenarios[step];
+document.getElementById("scenario").innerText=s.t;
+
+let html="";
+s.c.forEach(x=>{
+html+=<button class="${x[1]}" onclick="choose('${x[1]}')">${x[0]}</button>;
+});
+document.getElementById("choices").innerHTML=html;
+
+time=5;
+document.getElementById("timer").innerText="⏳ "+time;
+
+timerInt=setInterval(()=>{
+time--;
+document.getElementById("timer").innerText="⏳ "+time;
+
+if(time<=0){
+clearInterval(timerInt);
+chaos+=25;
+npc("🤖: تأخرت! الفوضى تزيد 😡");
+shake();
+setTimeout(next,800);
+}
+
+},1000);
+
+updateBar();
+}
+
+function choose(type){
+clearInterval(timerInt);
+
+if(type==="bad"){
+chaos+=30;
+shake();
+boom();
+npc("🤖: يا ساتر! وش سويت 💀");
+}
+else if(type==="fix"){
+chaos+=15;
+npc("🤖: ترقيع بس تمشي حالك 😂");
+}
+else{
+npc("🤖: كفو! تصرف احترافي 😎");
+}
+
+setTimeout(next,800);
+}
+
+function npc(msg){
+document.getElementById("npc").innerText=msg;
+}
+
+function shake(){
+document.body.classList.add("shake");
+setTimeout(()=>document.body.classList.remove("shake"),300);
+}
+
+function boom(){
+document.getElementById("boom").play();
+document.getElementById("alarm").play();
+}
+
+function next(){
+step++;
+
+if(chaos>=100){
+end("🚑 تم استدعاء الفني قبل ما تصير مصيبة!","💀 بطل الكوارث");
+return;
+}
+
+if(step>=scenarios.length){
+let title="🤡 زعيم الترقيع";
+if(chaos<40) title="😎 المهندس المتخفي";
+end("🏁 خلصت الجولة!",title);
+return;
+}
+
+load();
+}
+
+function updateBar(){
+document.getElementById("bar").style.width=chaos+"%";
+}
+
+function end(msg,title){
+document.getElementById("card").innerHTML=
+<h3>${msg}</h3><h2>${title}</h2><p>😂 شاركها فوراً بالقروب!</p>;
+}
+
+load();
+
+</script>
+
+</body>
+</htm
