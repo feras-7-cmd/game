@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>يوم في حياة فني صيانة - مستشفى الملك سلمان التخصصي</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--green:#00c853;--red:#ff1744;--yellow:#ffd600;--blue:#2979ff;--bg:#0a0e1a;--card:#131929;--card2:#1a2236;--border:#2a3a5a;--text:#e8eaf6;--muted:#8899bb;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;background-image:radial-gradient(ellipse at 20% 20%,rgba(41,121,255,.07) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(0,200,83,.05) 0%,transparent 60%);}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.particle{position:absolute;width:2px;height:2px;background:rgba(41,121,255,.4);border-radius:50%;animation:floatup linear infinite;}
+@keyframes floatup{0%{transform:translateY(100vh) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) translateX(var(--dx));opacity:0}}
+.wrapper{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:20px 16px 80px;}
+
+.header{text-align:center;padding:26px 20px 18px;margin-bottom:18px;}
+.hosp-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#1a2236,#0f1728);border:1px solid var(–border);border-radius:50px;padding:8px 20px;font-size:13px;color:var(–muted);margin-bottom:12px;}
+.hosp-badge span{color:var(–blue);font-weight:700;}
+.main-title{font-family:‘Tajawal’,sans-serif;font-size:clamp(23px,5vw,35px);font-weight:800;background:linear-gradient(135deg,#e8eaf6 0%,#2979ff 50%,#00c853 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin-bottom:5px;}
+.sub-title{color:var(–muted);font-size:14px;font-weight:600;}
+
+.screen{display:none;}.screen.active{display:block;}
+
+/* NAME */
+.name-card{background:var(–card);border:1px solid var(–border);border-radius:22px;padding:38px 26px;text-align:center;}
+.name-emo{font-size:60px;margin-bottom:13px;}
+.name-ttl{font-family:‘Tajawal’,sans-serif;font-size:25px;font-weight:800;margin-bottom:9px;}
+.name-sub{color:var(–muted);font-size:14px;font-weight:600;line-height:1.8;margin-bottom:26px;}
+.name-in{width:100%;background:var(–card2);border:2px solid var(–border);border-radius:13px;padding:15px 20px;font-family:‘Cairo’,sans-serif;font-size:17px;font-weight:700;color:var(–text);text-align:center;outline:none;transition:border-color .25s;margin-bottom:8px;}
+.name-in:focus{border-color:var(–blue);}
+.name-in::placeholder{color:var(–muted);font-weight:600;}
+.name-hint{color:var(–muted);font-size:12px;margin-bottom:22px;}
+.rules-box{background:rgba(255,255,255,.03);border-radius:13px;padding:17px;margin-bottom:22px;text-align:right;}
+.rule{display:flex;align-items:flex-start;gap:9px;font-size:13px;font-weight:600;color:var(–muted);margin-bottom:8px;line-height:1.6;}
+.rule:last-child{margin-bottom:0;}
+.start-btn{width:100%;background:linear-gradient(135deg,var(–blue),#1565c0);border:none;border-radius:13px;color:white;font-family:‘Cairo’,sans-serif;font-size:17px;font-weight:700;padding:16px;cursor:pointer;transition:all .25s;}
+.start-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 10px 28px rgba(41,121,255,.4);}
+.start-btn:disabled{opacity:.4;cursor:default;}
+
+/* SCORE */
+.score-panel{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px;}
+.sc{background:var(–card);border:1px solid var(–border);border-radius:13px;padding:11px 7px;text-align:center;}
+.sc .l{font-size:11px;color:var(–muted);font-weight:600;margin-bottom:2px;}
+.sc .v{font-size:22px;font-weight:900;font-family:‘Tajawal’,sans-serif;}
+.sc-b .v{color:var(–blue);}.sc-g .v{color:var(–green);}.sc-y .v{color:var(–yellow);}
+.sc-b .v{font-size:15px;}
+
+/* CHAOS */
+.chaos-sec{background:var(–card);border:1px solid var(–border);border-radius:13px;padding:13px 17px;margin-bottom:14px;}
+.chaos-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+.chaos-lbl{font-size:13px;font-weight:700;color:var(–muted);}
+.chaos-pct{font-size:13px;font-weight:700;}
+.chaos-bg{background:rgba(255,255,255,.06);border-radius:50px;height:11px;overflow:hidden;}
+.chaos-fill{height:100%;border-radius:50px;transition:width .6s cubic-bezier(.4,0,.2,1),background .6s;position:relative;overflow:hidden;}
+.chaos-fill::after{content:’’;position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);animation:shim 2s infinite;}
+@keyframes shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.chaos-emos{display:flex;gap:6px;margin-top:6px;}
+.ce{font-size:17px;transition:all .3s;filter:grayscale(1);opacity:.3;}
+.ce.on{filter:grayscale(0);opacity:1;animation:ceshk .4s;}
+@keyframes ceshk{0%,100%{transform:rotate(0)}25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+
+/* PROGRESS */
+.pdots{display:flex;justify-content:center;gap:8px;margin-bottom:14px;}
+.dot{width:10px;height:10px;border-radius:50%;background:var(–border);transition:all .3s;}
+.dot.done{background:var(–green);}.dot.active{background:var(–blue);transform:scale(1.3);}
+
+/* SCENARIO */
+.sc-card{background:var(–card);border:1px solid var(–border);border-radius:19px;padding:24px 20px;margin-bottom:14px;position:relative;overflow:hidden;}
+.sc-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(–blue),var(–green));}
+.sc-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(41,121,255,.12);border:1px solid rgba(41,121,255,.25);color:var(–blue);border-radius:50px;padding:4px 13px;font-size:12px;font-weight:700;margin-bottom:11px;}
+.sc-emo{font-size:46px;display:block;text-align:center;margin-bottom:11px;animation:pemo 2s infinite;}
+@keyframes pemo{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.sc-txt{font-size:15px;font-weight:700;line-height:1.75;text-align:center;}
+
+/* OPTIONS */
+.opts{display:flex;flex-direction:column;gap:9px;margin-bottom:14px;}
+.opt{background:var(–card2);border:1.5px solid var(–border);border-radius:13px;padding:15px 16px;text-align:right;cursor:pointer;transition:all .2s;display:flex;align-items:flex-start;gap:11px;font-family:‘Cairo’,sans-serif;font-size:14px;color:var(–text);font-weight:600;line-height:1.65;}
+.opt:hover:not(:disabled){border-color:rgba(41,121,255,.45);background:rgba(41,121,255,.06);transform:translateX(-2px);}
+.opt:disabled{cursor:default;}
+.opt.ok{border-color:var(–green)!important;background:rgba(0,200,83,.1)!important;animation:okpop .4s;}
+.opt.ng{border-color:var(–red)!important;background:rgba(255,23,68,.1)!important;animation:ngshk .4s;}
+@keyframes okpop{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes ngshk{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+.opt-num{min-width:32px;height:32px;border-radius:9px;background:rgba(41,121,255,.12);color:var(–blue);border:1px solid rgba(41,121,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;flex-shrink:0;}
+.opt.ok .opt-num{background:rgba(0,200,83,.2);color:var(–green);border-color:rgba(0,200,83,.3);}
+.opt.ng .opt-num{background:rgba(255,23,68,.2);color:var(–red);border-color:rgba(255,23,68,.3);}
+
+/* FEEDBACK */
+.fb{border-radius:17px;padding:19px 20px;margin-bottom:13px;display:none;animation:sup .35s cubic-bezier(.4,0,.2,1);}
+.fb.show{display:block;}.fb-ok{background:rgba(0,200,83,.1);border:1.5px solid rgba(0,200,83,.3);}.fb-ng{background:rgba(255,23,68,.1);border:1.5px solid rgba(255,23,68,.3);}
+@keyframes sup{from{transform:translateY(13px);opacity:0}to{transform:translateY(0);opacity:1}}
+.fb-emo{font-size:30px;margin-bottom:5px;}.fb-com{font-size:14px;font-weight:700;line-height:1.65;margin-bottom:9px;}
+.fb-tip{background:rgba(255,255,255,.05);border-radius:9px;padding:10px 13px;font-size:12px;color:var(–muted);font-weight:600;display:flex;gap:7px;align-items:flex-start;}
+
+/* NEXT */
+.nxt{width:100%;padding:14px;background:linear-gradient(135deg,var(–blue),#1565c0);border:none;border-radius:12px;color:white;font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;display:none;margin-bottom:13px;}
+.nxt.show{display:block;}.nxt:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(41,121,255,.35);}
+
+/* CHAOS ALERT */
+.calert{background:linear-gradient(135deg,rgba(255,23,68,.15),rgba(255,109,0,.1));border:1.5px solid rgba(255,23,68,.4);border-radius:17px;padding:20px;text-align:center;margin-bottom:13px;animation:sup .4s;display:none;}
+.calert.show{display:block;}
+
+/* END */
+.end-card{background:var(–card);border:1px solid var(–border);border-radius:22px;padding:32px 24px;text-align:center;display:none;animation:sup .5s;}
+.end-card.show{display:block;}
+.end-trophy{font-size:60px;margin-bottom:13px;animation:bnc 1s infinite;}
+@keyframes bnc{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.ttl-badge{display:inline-block;background:linear-gradient(135deg,rgba(255,214,0,.15),rgba(255,109,0,.1));border:1.5px solid rgba(255,214,0,.35);border-radius:50px;padding:9px 24px;font-size:18px;font-weight:900;color:var(–yellow);margin-bottom:11px;font-family:‘Tajawal’,sans-serif;}
+.end-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0;}
+.estat{background:rgba(255,255,255,.04);border-radius:11px;padding:10px 5px;}
+.esv{font-size:25px;font-weight:900;font-family:‘Tajawal’,sans-serif;}
+.esl{font-size:11px;color:var(–muted);font-weight:600;}
+.esg{color:var(–green);}.esy{color:var(–yellow);}.esr{color:var(–red);}
+.end-tip-box{background:rgba(41,121,255,.08);border:1px solid rgba(41,121,255,.2);border-radius:12px;padding:13px 17px;font-size:13px;font-weight:600;color:var(–text);margin-bottom:16px;line-height:1.7;}
+.end-btns{display:flex;flex-direction:column;gap:9px;}
+.replay-btn{background:linear-gradient(135deg,var(–green),#00897b);border:none;border-radius:12px;color:white;font-family:‘Cairo’,sans-serif;font-size:15px;font-weight:700;padding:14px;cursor:pointer;transition:all .25s;}
+.replay-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,200,83,.35);}
+.lb-open-btn{background:var(–card2);border:1.5px solid var(–border);border-radius:12px;color:var(–text);font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:700;padding:12px;cursor:pointer;transition:all .25s;}
+.lb-open-btn:hover{border-color:var(–yellow);background:rgba(255,214,0,.06);}
+
+/* LEADERBOARD */
+.lb-card{background:var(–card);border:1px solid var(–border);border-radius:22px;padding:26px 18px;}
+.lb-hdr{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+.lb-ico{font-size:38px;}.lb-title{font-family:‘Tajawal’,sans-serif;font-size:21px;font-weight:800;color:var(–yellow);}
+.lb-sub{font-size:12px;color:var(–muted);font-weight:600;}
+.lb-empty{text-align:center;padding:38px;color:var(–muted);font-size:14px;font-weight:600;}
+.lb-empty-emo{font-size:46px;margin-bottom:10px;}
+.lb-row{display:flex;align-items:center;gap:11px;background:var(–card2);border:1px solid var(–border);border-radius:13px;padding:12px 15px;margin-bottom:7px;transition:all .2s;}
+.lb-row.me{border-color:rgba(255,214,0,.4);background:rgba(255,214,0,.06);}
+.lb-rank{font-size:20px;min-width:34px;text-align:center;}
+.lb-info{flex:1;}
+.lb-name{font-size:14px;font-weight:700;}
+.lb-meta{font-size:11px;color:var(–muted);font-weight:600;margin-top:2px;}
+.lb-score-box{background:linear-gradient(135deg,rgba(41,121,255,.2),rgba(0,200,83,.15));border:1px solid rgba(41,121,255,.3);border-radius:9px;padding:5px 13px;text-align:center;}
+.lb-snum{font-size:19px;font-weight:900;font-family:‘Tajawal’,sans-serif;color:var(–blue);}
+.lb-slbl{font-size:10px;color:var(–muted);font-weight:600;}
+.back-btn{width:100%;background:var(–card2);border:1.5px solid var(–border);border-radius:12px;color:var(–text);font-family:‘Cairo’,sans-serif;font-size:14px;font-weight:700;padding:12px;cursor:pointer;transition:all .25s;margin-top:13px;}
+.back-btn:hover{border-color:var(–blue);}
+.lb-clear-btn{width:100%;background:transparent;border:1.5px solid rgba(255,23,68,.25);border-radius:12px;color:rgba(255,23,68,.6);font-family:‘Cairo’,sans-serif;font-size:12px;font-weight:700;padding:10px;cursor:pointer;transition:all .25s;margin-top:7px;}
+.lb-clear-btn:hover{border-color:var(–red);color:var(–red);}
+
+@media(max-width:480px){
+.score-panel{gap:7px;}.sc .v{font-size:19px;}.sc-b .v{font-size:13px;}
+.opt{font-size:13px;padding:12px 13px;}.sc-txt{font-size:14px;}
+}
+</style>
+
+</head>
+<body>
+<div class="particles" id="particles"></div>
+<div class="wrapper">
+
+ <div class="header">
+ <div class="hosp-badge"> <span>مستشفى الملك سلمان التخصصي</span> · الطائف</div> <div class="main-title">يوم في حياة فني الصيانة </div> <div class="sub-title">لعبة توعوية تفاعلية لموظفي المستشفى</div> </div>
+
+ <!-- NAME SCREEN -->
+
+ <div class="screen active" id="screenName">
+ <div class="name-card">
+ <div class="name-emo"> </div> <div class="name-ttl">أهلاً وسهلاً بزملاء المهنة! </div> <div class="name-sub">يا هلا فيكم يا نجوم مستشفى الملك سلمان التخصصي! <br>ادخل اسمك عشان نسجّلك في قائمة الأبطال (أو الكوارث )</div> <input class="name-in" id="nameIn" type="text" placeholder="اكتب اسمك هنا..." maxlength="20" oninput="checkName()" onkeydown="if(event.key==='Enter')tryStart()">
+ <div class="name-hint">٢٠ حرف كحد أقصى</div>
+ <div class="rules-box"> <div class="rule"><span> </span><span>٣ سيناريوهات كارثية تنتظرك — كل مرة تلعب سيناريوهات مختلفة!</span></div> <div class="rule"><span> </span><span>اختار الحل الصح من ٣ خيارات — بدون تلميحات، العقل رأس المال!</span></div>
+ <div class="rule"><span> </span><span>كل إجابة خاطئة ترفع مؤشر الفوضى — احترس!</span></div>
+ <div class="rule"><span> </span><span>نتيجتك تتسجل في لوحة شرف الأبطال (وسجل العار كمان )</span></div>
+ </div>
+ <button class="start-btn" id="startBtn" onclick="startGame()" disabled> ابدأ اللعبة!</button>
+ </div>
+ </div>
+
+ <!-- GAME SCREEN -->
+
+ <div class="screen" id="screenGame">
+ <div class="score-panel">
+ <div class="sc sc-b"><div class="l"> اللاعب</div><div class="v" id="pName">-</div></div>
+ <div class="sc sc-g"><div class="l"> صح</div><div class="v" id="corrCnt">0</div></div>
+ <div class="sc sc-y"><div class="l"> السيناريو</div><div class="v" id="scNum">1/3</div></div>
+ </div>
+
+```
+<div class="chaos-sec">
+ <div class="chaos-hdr">
+ <div class="chaos-lbl"> مؤشر الفوضى</div>
+ <div class="chaos-pct" id="chaosPct">0%</div>
+ </div>
+ <div class="chaos-bg"><div class="chaos-fill" id="chaosBar" style="width:0%;background:#00c853"></div></div>
+ <div class="chaos-emos">
+ <span class="ce" id="ce0"> </span><span class="ce" id="ce1"> </span><span class="ce" id="ce2"> </span><span class="ce" id="ce3"> </span><span class="ce" id="ce4"> </span>
+ </div>
+</div>
+
+<div class="calert" id="chaosAlert">
+ <div style="font-size:42px;margin-bottom:7px;"> </div>
+ <div style="font-size:17px;font-weight:900;color:var(--red);margin-bottom:5px;">تم استدعاء الفني الطارئ!</div> <div style="font-size:13px;color:var(--muted);font-weight:600;">وصل مؤشر الفوضى للحد الأقصى <br>تحولت العيادة لفيلم رعب! الطاقم الكامل في الطريق...</div></div>
+
+<div class="pdots" id="pdots">
+ <div class="dot active" id="dot0"></div>
+ <div class="dot" id="dot1"></div>
+ <div class="dot" id="dot2"></div>
+</div>
+
+<div class="sc-card" id="scCard">
+ <div class="sc-badge" id="scBadge"> السيناريو الأول</div>
+ <span class="sc-emo" id="scEmo"> </span>
+ <div class="sc-txt" id="scTxt"></div>
+</div>
+
+<div class="opts" id="optsGrid"></div>
+
+<div class="fb" id="fbCard">
+ <div class="fb-emo" id="fbEmo"></div>
+ <div class="fb-com" id="fbCom"></div>
+ <div class="fb-tip"><span> </span><span id="fbTipTxt"></span></div>
+</div>
+
+<button class="nxt" id="nxtBtn" onclick="nextScenario()">التالي </button>
+
+<div class="end-card" id="endCard">
+ <div class="end-trophy" id="endTrophy"> </div>
+ <div class="ttl-badge" id="endTitle"></div>
+ <div style="color:var(--muted);font-size:13px;font-weight:600;margin-bottom:13px;line-height:1.7;" id="endMsg"></div>
+ <div class="end-stats">
+ <div class="estat"><div class="esv esg" id="endC">0</div><div class="esl"> صحيحة</div></div>
+ <div class="estat"><div class="esv esy" id="endF">0</div><div class="esl"> ترقيع</div></div>
+ <div class="estat"><div class="esv esr" id="endD">0</div><div class="esl"> كوارث</div></div>
+ </div>
+ <div class="end-tip-box" id="endTip"></div>
+ <div class="end-btns">
+ <button class="replay-btn" onclick="replayGame()"> العب مرة ثانية!</button>
+ <button class="lb-open-btn" onclick="showLeaderboard()"> لوحة الأبطال وسجل العار </button>
+ </div>
+</div>
+```
+
+ </div>
+
+ <!-- LEADERBOARD SCREEN -->
+
+ <div class="screen" id="screenLB">
+ <div class="lb-card">
+ <div class="lb-hdr">
+ <div class="lb-ico"> </div>
+ <div>
+ <div class="lb-title">لوحة الأبطال... والكوارث! </div> <div class="lb-sub">من قسم الصيانة بالتعاون مع قسم الكوارث الطبيعية </div> </div>
+ </div>
+ <div id="lbContent"></div>
+ <button class="back-btn" onclick="backFromLB()"> ارجع للعبة</button>
+ <button class="lb-clear-btn" onclick="clearLB()"> مسح السجل كله</button>
+ </div>
+ </div>
+
+</div>
+<script>
+// ===================== DATA =====================
+const ALL = [ {id:1,emoji:" ",text:"يا هلا! جالس في مكتبك وراك ملفات وضغط شغل، وفجأة المكيف قرر يتحول لـ'شلال' ويصب موية فوق ملفات المريض! الموية شاطحة والأوراق تبتل.. وش بتسوي يا بطل؟", options:[ {type:"smart",text:"أحط سطل أو كيس نايلون فوراً تحت الموية، أنقل الملفات لمكان جاف، وأتصل بقسم الصيانة على طول وأوصف المشكلة بدقة"}, {type:"funny",text:"أجيب لصقة جروح من العيادة وأطبّقها فوق فتحة المكيف، وأوزع مناديل ورقية فوق الملفات عشان تشفط الموية"}, {type:"bad", text:"أطفي المكيف وأفك الغطاء وأبدأ أفتش في الأسلاك بيدي وهي مبلولة، أكيد قادر أصلحه!"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"كفو والله! هذا فني صيانة متخفي في بدلة موظف! تصرفت صح وحميت الملفات، والأهم بلّغت الصيانة فوراً! ",tip:"التصرف السريع بحماية الموجودات وإبلاغ الصيانة الفوري يمنع خسارة أكبر وأضرار تتضاعف."}, funny:{emoji:" ",comment:"لصق جروح عاد؟! يا أخي هذا مكيف مو جرح في إصبعك! الصيانة تقولك: تكفى لا تجتهد وبلغنا بس! ",tip:"الحلول المؤقتة قد تخفي المشكلة وتجعلها أخطر. البلاغ الفوري هو الصواب دائماً."}, bad:{emoji:" ",comment:"يا ساتر!! تبي تحرق المستشفى علينا؟! موية + كهرباء = صاعقة مضمونة! سلامتك أهم من المكيف! ",tip:" لا تلمس الأجهزة الكهربائية المبللة أبداً! افصل الكهرباء من المفتاح الرئيسي وأبلغ الصيانة فوراً."} }
+ }, {id:2,emoji:" ",text:"في عز الدوام، فيش الكمبيوتر في مكتبك فجأة طلع شرار وريحة حرق! الكمبيوتر طفى لحاله.. القسم كله خايف وشايف! وش الخطوة الأولى؟", options:[ {type:"smart",text:"أطلب من الجميع الابتعاد، أبلغ قسم الصيانة فوراً، وأبلغ مسؤول الطابق — لا أقترب من الفيش أو أحاول أسحبه"}, {type:"funny",text:"أجيب فوطة مبللة من الحمام وأحاول أطفي الشرار، وبعدين أشيل الفيش بإيدي وعليها الفوطة كـ'عازل'"}, {type:"bad", text:"أجيب الكمبيوتر الاحتياطي وأوصّل الفيش القديم المحترق فيه عشان أشوف إذا الفيش هو المشكلة!"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"أبطال! واللهي هذا التصرف الصح! أخليت الجميع بأمان وأبلغت المختصين. كفو! ",tip:"عند حدوث شرار كهربائي: ابتعد، لا تستخدم الماء، أبلغ الصيانة فوراً، وأبلغ مسؤول الطابق."}, funny:{emoji:" ",comment:"فوطة مبللة على كهرباء؟! الماء ينقل الكهرباء يا نجم مو يحميك منها! روح حياتك أثمن من الفيش! ",tip:" لا تستخدم الماء مطلقاً مع الحرائق الكهربائية! الماء موصّل للكهرباء وقد يسبب صعقة قاتلة."}, bad:{emoji:" ",comment:"توصّل الفيش المحترق في جهاز ثاني؟؟ تبي تحرق جهازين بدل واحد؟! هذا مكتب مو مختبر! ",tip:" لا تعيد توصيل مكونات محترقة أبداً. الحريق الكهربائي يحتاج متخصصاً، وليس تجارب ارتجالية."} }
+ }, {id:3,emoji:" ",text:"الدكتور في منتصف فحص مريض مهم.. وفجأة الباب يطلع صوت 'صَر صَر' أزيز مزعج ما يوقف! المريض يعبّس والدكتور ينظر لك أنت بالذات!", options:[ {type:"smart",text:"أسجّل بلاغ في نظام الصيانة بعد انتهاء الفحص، وأبلغ مشرفي فوراً عشان يرسلون فني صيانة متخصص"}, {type:"funny",text:"أجيب زيت الزيتون من كافيتيريا الموظفين وأحاول أدهن المفصلة بإيدي وسط الفحص عشان يسكت الصوت"}, {type:"bad", text:"أفك مفصلة الباب بالمفك وأشيلها كلها وأترك الباب معلّق عشان يهدأ الصوت نهائياً!"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"ماشاء الله عليك! عرفت إن سلامة الفحص الطبي أهم، وبلّغت الصيانة بالطريقة الصحيحة! ",tip:"الإبلاغ عبر النظام الرسمي يضمن توثيق المشكلة ومتابعتها بشكل صحيح، وعدم نسيانها."}, funny:{emoji:" ",comment:"زيت زيتون؟! يا حبيبي هذا باب غرفة فحص مو سلطة! الدكتور رح يطردك هو والزيتون معك! ",tip:"الحلول الارتجالية بمواد غير مخصصة قد تتلف المفصلة أكثر. الإبلاغ الصحيح هو الحل الدائم."}, bad:{emoji:" ",comment:"شلّعت الباب؟! هسا عندنا غرفة فحص بدون باب والمريض يتفرج عليه الممر كله! ",tip:" لا تفك أجزاء أبواب أو معدات المستشفى أبداً دون تفويض. الخصوصية والسلامة على المحك."} }
+ }, {id:4,emoji:" ",text:"ممر القسم بدأ لمباته تومض وتتقطع كأنك في ملهى ليلي أو بيت مسكون! المرضى خايفين والموظفين مدهوشين.. والإضاءة ترفض تهدأ!", options:[ {type:"smart",text:"أتأكد إن الإضاءة الاحتياطية تشتغل، أبلّغ الصيانة الكهربائية فوراً، وأطمّن المرضى والموظفين"}, {type:"funny",text:"أجيب كمية شمع لوكس من قسم التخزين وأوزعها في الممر عشان 'نعوّض' الإضاءة"}, {type:"bad", text:"أصعد على كرسي وأفك غطاء لوحة الكهرباء الرئيسية وأبدأ أحرك الأسلاك لحالي"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"ممتاز وايد! أبلغت الصيانة وطمّنت الجميع. هذا هو رجل الموقف الحقيقي! ",tip:"الإضاءة المتقطعة قد تدل على خلل كهربائي خطير. الإبلاغ الفوري مع تهدئة المرضى هو التصرف المثالي."}, funny:{emoji:" ",comment:"شمع في مستشفى حديث؟! نحن في ٢٠٢٥ مو في زمن الدواوير! وخطر الحريق من الشمع في ممر طوارئ؟! ",tip:"استخدام الشمع في المستشفى خطر شديد على السلامة من الحريق. هناك إضاءة احتياطية رسمية معتمدة."}, bad:{emoji:" ",comment:"لوحة الكهرباء الرئيسية؟! أنت مو فني كهرباء معتمد! ممكن تطفّل الطابق كله وفيك! ",tip:" لوحات الكهرباء الرئيسية ممنوع المساس بها إلا من قبل مهندس كهربائي مرخّص. خطر الوفاة جسيم."} }
+ }, {id:5,emoji:" ",text:"رحت تاخذ المصعد وفجأة توقف بين دورين! الأبواب ما تفتح وفيه ناس معاك داخل! المصعد شاطح بس 'شوي' بين الدورين.. وش الخطوة الأولى؟", options:[ {type:"smart",text:"أضغط على زر الإنذار الأحمر، أطمّن من معي وأطلب منهم يهدون، وأنتظر فريق الطوارئ — لا أحاول أفتح الأبواب"}, {type:"funny",text:"أجيب مفتاح سيارتي وأحاول أحشره في فتحة الباب وأحرّكه كأنها قفل، وأقول للناس 'أنا شايل علوم'"}, {type:"bad", text:"أحاول أفتح باب المصعد يدوياً بالقوة وأقفز أنا والناس للدور اللي تحتنا"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"صح! زر الإنذار موجود عشان هذا الموقف بالذات! وتطمين الناس مهارة قيادية رهيبة. بطل الهدوء! ",tip:"داخل المصعد: اضغط الإنذار، تواصل مع غرفة التحكم، هدّئ من معك، ولا تحاول فتح الأبواب قسراً أبداً."}, funny:{emoji:" ",comment:"مفتاح السيارة يفتح باب مصعد؟! مفتاحك يفتح سيارتك بس مو كل الأبواب في الكون! وقلت 'شايل علوم' بمفتاح كيا! ",tip:"مفاتيح المصعد خاصة ومختلفة تماماً. الحل الوحيد هو زر الإنذار وانتظار المختصين."}, bad:{emoji:" ",comment:"تقفزون من المصعد؟! ممكن تتكسر ساق أو أكثر! طيّرت راسك وخذيت معك الناس! الصيانة ما قادرة تنام! ",tip:" القفز من المصعد أخطر من البقاء فيه. المصعد العالق محمي بأنظمة أمان. انتظر المختصين دائماً."} }
+ }, {id:6,emoji:" ",text:"كمبيوتر الاستقبال بدأ يطلع دخان أزرق خفيف من ظهره مع ريحة بلاستيك محترق! السكرتيرة واقفة تحدّق فيه مذهولة والمرضى في الطابور!", options:[ {type:"smart",text:"أطلب من السكرتيرة تبتعد فوراً، أفصل قابس الكمبيوتر من المصدر الكهربائي بالحائط، وأبلّغ الصيانة فوراً وأنبّه المرضى بهدوء"}, {type:"funny",text:"أجيب مروحة الطاولة الصغيرة وأحطها تبرّد الكمبيوتر، وأعطر المكان بعطر موظفة الاستقبال عشان يغطي الريحة"}, {type:"bad", text:"أشيل الكمبيوتر وأحطه على حوض المغسلة وأصب عليه موية باردة عشان يبرد!"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"الله يرضى عليك! فصلت الكهرباء من المصدر الصح وطلّعت الجميع بسلامة! المسؤول الواعي اللي نتمناه! ",tip:"عند الدخان الكهربائي: افصل المصدر من القابس الرئيسي، ابتعد، أبلغ الصيانة. لا تستخدم الماء أبداً."}, funny:{emoji:" ",comment:"مروحة تبرّد كمبيوتر يحترق؟! وعطر يغطي الريحة؟! المروحة تأجج النار والعطر كمان قابل للاشتعال! ",tip:"تبريد الجهاز المشتعل بالمروحة قد يزيد الحريق. الفصل الكهربائي الفوري هو الخطوة الأولى دائماً."}, bad:{emoji:" ",comment:"صببت موية على كمبيوتر مشتعل؟! الماء على الكهرباء = صاعقة + حريق أكبر! الكمبيوتر راح والمغسلة راحت! ",tip:" الماء على الحرائق الكهربائية قاتل! استخدم طفاية CO2 فقط، أو افصل الكهرباء وانتظر الإطفاء."} }
+ }, {id:7,emoji:" ",text:"حنفية مغسلة الممر الطبي بدأت تصب موية بشكل مستمر وما تقفل! كل ما تقفلها تفتح لحالها! الأرض بدأت تتبلل والممر فيه حركة مرضى!", options:[ {type:"smart",text:"أضع لافتة تحذير 'أرضية زلقة' فوراً، أبحث عن صمام إيقاف المياه أسفل المغسلة وأغلقه، وأبلغ الصيانة فوراً"}, {type:"funny",text:"أجيب شريط لاصق طبي كبير من مخزن العيادة وألفّ الحنفية كلها بالشريط عشان أوقف الموية"}, {type:"bad", text:"أجيب مفك وأبدأ أفك الحنفية كلياً عشان أشوف وش المشكلة من الداخل!"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"وايد صح! لافتة التحذير حمت المرضى من الانزلاق، وقفلت صمام الماء بشكل صحيح! موظف يساوي ألف فني! ",tip:"كل مغسلة في المستشفى لها صمام إيقاف تحتها. تعلّم موقعه مسبقاً يوفر كوارث."}, funny:{emoji:" ",comment:"شريط لاصق على حنفية؟! الماء بيفك الشريط في ثانيتين وبيطير مع الشريط معه! هذا مو جرح يلصق عليه! ",tip:"الشريط اللاصق لا يصمد أمام ضغط المياه. الصمام تحت المغسلة هو الحل المؤقت الصحيح."}, bad:{emoji:" ",comment:"فكّيت الحنفية؟! الحين عندنا فوران موية من سنارة الحنفية والممر كله بحر والمرضى يحتاجون قوارب! ",tip:" لا تفك أجزاء السباكة أبداً بدون إيقاف مصدر الماء أولاً. يمكن التسبب بفيضان كامل."} }
+ }, {id:8,emoji:" ",text:"كرسي الفحص في عيادة العظام بدأ يهتز ويميل وأحد قوائمه ترنّح! الدكتور رح يجي خلال دقائق والمريض القادم ثقيل الوزن!", options:[ {type:"smart",text:"أضع على الكرسي فوراً ورقة 'خارج الخدمة'، أبلّغ الدكتور عند وصوله، وأتصل بالصيانة لإصلاحه أو استبداله"}, {type:"funny",text:"أجيب ضمادة طبية سميكة وألفّها حول القائمة كـ'جبيرة' للكرسي، وأحط كتاب قديم تحته عشان يتوازن"}, {type:"bad", text:"ما أقول لأحد وأترك الكرسي كما هو عشان ما أتعب وتبدأ العيادة بوقتها!"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"ماشاء الله! حميت المريض من إصابة محتملة وأبلغت المسؤولين. هذا الإجراء البسيط يمنع حادثة وشكوى وقضية! ",tip:"المعدات الطبية المعطلة يجب إيقافها فوراً وتوثيق البلاغ. سلامة المريض فوق كل اعتبار."}, funny:{emoji:" ",comment:"جبيرة للكرسي؟! الكرسي مو بيشكو للدكتور! وكتاب تحت القائمة؟ أول ما يجلس المريض الثقيل الكتاب يطير والكرسي يطير! ",tip:"المواد الطبية للمرضى فقط. الكرسي المتكسر = خطر سقوط حقيقي. أوقفه من الخدمة فوراً."}, bad:{emoji:" ",comment:"ما قلت لأحد؟! بكره المريض يوقع وتكون مسؤولاً قانونياً! الكتمان خطر على المريض وعليك أنت! ",tip:" إخفاء العيوب في المعدات الطبية مسؤولية قانونية وأخلاقية. البلاغ الفوري واجب وحماية للجميع."} }
+ }, {id:9,emoji:" ",text:"في مستودع الأدوية، لاحظت أنبوبة الأكسجين الكبيرة راحت تميل ومشرفت تطيح! الموظفين ما لاحظوا والأنبوبة تتمايل!", options:[ {type:"smart",text:"أنبّه الموظفين بصوت هادئ للابتعاد، أحاول تثبيت الأنبوبة بحذر بدون لمس الصمام، وأبلّغ الصيانة والسلامة فوراً"}, {type:"funny",text:"أجيب شريط تغليف كبير وأربط الأنبوبة بالرف اللي جانبها عشان 'تتمسك' فيه وما توقع"}, {type:"bad", text:"أمسك الأنبوبة بقوة من الصمام العلوي وأسحبها لمكان أفضل وأحطها بجانب الحائط"} ],
+ feedbacks:{ smart:{emoji:" ",comment:"بطل بحق! تعاملت مع موقف خطير بهدوء واحترافية. أنبوبة الأكسجين الطائرة مو نكتة — هذا أنقذ أرواح! ",tip:"أسطوانات الأكسجين إذا سقطت وانكسر صمامها تتحول لصاروخ حرفياً. الإبلاغ الفوري واجب."}, funny:{emoji:" ",comment:"شريط تغليف على أنبوبة أكسجين؟! هذي أنبوبة ضغطها عشرات الأجواء مو علبة كرتون! الشريط ما راح يوقفها! ",tip:"أسطوانات الغاز لها حوامل معدنية خاصة للتثبيت. أي طريقة أخرى غير موثوقة وخطيرة."}, bad:{emoji:" ",comment:"سحبت الأنبوبة من الصمام؟! لو انفتح الصمام، الأنبوبة بتطير كصاروخ وتثقب الجدار! حوادث أسطوانات الغاز مدمّرة! ",tip:" خطر قاتل: لا تمسك صمام أسطوانة الغاز أبداً. إذا سقطت وانكسر الصمام تتحول لمقذوف فعلي."} }
+ }
+];
+
+const TITLES = {perfect: {t:“المهندس المتخفي! ”, trophy:“ ”,msg:“سبحان الله! ثلاثة من ثلاثة! أنت مو موظف عادي، أنت فني صيانة اتخفى في هيئة موظف إداري! الصيانة تتمنى يكون كل الموظفين مثلك!”,tip:“التبليغ السريع وإبلاغ المختصين هو دائماً الحل الأذكى. موظف واعٍ = مستشفى أآمن!”},good: {t:“نجم الوعي! ”, trophy:“ ”,msg:“ماشاء الله! تصرفت صح في معظم المواقف. شوية تدريب وتبقى أسطورة! استمر!”,tip:“الاجتهاد بنية حسنة مفيد، لكن في الصيانة المتخصصة الأفضل دائماً إبلاغ المختصين أولاً!”},mid: {t:“الكادر الواعد! ”, trophy:“ ”,msg:“كفو! إجابة صح وبعضها ترقيع. لو درّبتك أسبوع واحد، تبقى أفضل فني في القسم!”,tip:“كل موقف صيانة له بروتوكول محدد. الاتصال بالصيانة قبل أي تدخل يحمي الجميع.”},patchy: {t:“زعيم الترقيع الملكي! ”, trophy:“ ”,msg:“يا عمري! أنت عندك إبداع ما شاء الله! لكن الصيانة تقول: الترقيع مؤقت والحل الصحيح دائم!”,tip:“الحلول المؤقتة قد تخفي المشكلة وتجعلها أخطر. دائماً أبلغ الصيانة للحل الجذري الصحيح.”},disaster:{t:“بطل الكوارث الأسطوري! ”,trophy:“ ”,msg:“يا ساتر! الصيانة راحت تطلب إجازة بعد ما شافت إجاباتك! لكن بجدية — اللعبة موجودة عشان نتعلم معاً!”,tip:“الخطأ بنية حسنة ما يبرر المخاطرة. في المستشفى، التصرف الخاطئ قد يؤذي مريضاً أو موظفاً. ابلغ دائماً!”},mixed: {t:“الموظف المغامر! ”, trophy:“ ”,msg:“مزيج غريب وجميل من الإجابات! فيك الصح وفيك الترقيع وفيك الجرأة! المرة الجاية نصبّ على الصحيح!”,tip:“في بيئة المستشفى، الإبلاغ الفوري عن أي عطل أسرع وأأمن من أي محاولة ذاتية للإصلاح.”}};
+
+// ===================== STATE =====================
+let G={name:’’,idx:0,sessionUsed:[],scenarios:[],chaos:0,correct:0,funny:0,bad:0,answered:false};
+
+// ===================== LB =====================
+const LBK=‘ksmc_lb_v3’;
+function loadLB(){try{return JSON.parse(localStorage.getItem(LBK)||’[]’);}catch(e){return[];}}
+function saveLB(d){try{localStorage.setItem(LBK,JSON.stringify(d));}catch(e){}}
+function addLB(name,correct,title){
+const lb=loadLB();
+lb.push({name,correct,title,ts:Date.now()});
+lb.sort((a,b)=>b.correct-a.correct||b.ts-a.ts);
+saveLB(lb.slice(0,20));
+}
+
+// ===================== PARTICLES =====================
+(()=>{
+const c=document.getElementById(‘particles’);
+for(let i=0;i<18;i++){
+const p=document.createElement(‘div’);p.className=‘particle’;
+p.style.cssText=`left:${Math.random()*100}%;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*8}s;width:${1+Math.random()*3}px;height:${1+Math.random()*3}px;--dx:${(Math.random()-.5)*200}px;opacity:${.2+Math.random()*.4}`;
+c.appendChild(p);
+}
+})();
+
+// ===================== SCREENS =====================
+function showScreen(id){document.querySelectorAll(’.screen’).forEach(s=>s.classList.remove(‘active’));document.getElementById(id).classList.add(‘active’);}
+
+// ===================== NAME =====================
+function checkName(){document.getElementById(‘startBtn’).disabled=document.getElementById(‘nameIn’).value.trim().length<2;}
+function tryStart(){if(document.getElementById(‘nameIn’).value.trim().length>=2)startGame();}
+
+// ===================== PICK SCENARIOS =====================
+function pickScenarios(){
+let avail=ALL.filter(s=>!G.sessionUsed.includes(s.id));
+if(avail.length<3){G.sessionUsed=[];avail=ALL.slice();}
+const picked=avail.sort(()=>Math.random()-.5).slice(0,3);
+picked.forEach(s=>G.sessionUsed.push(s.id));
+return picked;
+}
+
+// ===================== START =====================
+function startGame(){
+G.name=document.getElementById(‘nameIn’).value.trim();
+G.idx=0;G.chaos=0;G.correct=0;G.funny=0;G.bad=0;G.answered=false;
+G.scenarios=pickScenarios();
+document.getElementById(‘pName’).textContent=G.name;
+showScreen(‘screenGame’);
+document.getElementById(‘endCard’).className=‘end-card’;
+document.getElementById(‘chaosAlert’).className=‘calert’;
+document.getElementById(‘scCard’).style.display=‘block’;
+document.getElementById(‘optsGrid’).style.display=‘flex’;
+document.getElementById(‘pdots’).style.display=‘flex’;
+updateChaos();
+renderScenario();
+}
+
+// ===================== RENDER =====================
+function renderScenario(){
+const sc=G.scenarios[G.idx];G.answered=false;
+document.getElementById(‘scEmo’).textContent=sc.emoji;
+document.getElementById(‘scTxt’).textContent=sc.text;document.getElementById(‘scBadge’).textContent=[‘ السيناريو الأول’,‘ السيناريو الثاني’,‘ السيناريو الثالث’][G.idx];document.getElementById(‘scNum’).textContent=(G.idx+1)+’/3’;
+document.getElementById(‘corrCnt’).textContent=G.correct;
+updateDots();
+
+const shuffled=sc.options.slice().sort(()=>Math.random()-.5);
+const grid=document.getElementById(‘optsGrid’);
+grid.innerHTML=’’;
+const nums=[‘١’,‘٢’,‘٣’];
+shuffled.forEach((opt,i)=>{
+const btn=document.createElement(‘button’);
+btn.className=‘opt’;
+btn.innerHTML=`<div class="opt-num">${nums[i]}</div><div>${opt.text}</div>`;
+btn.onclick=()=>answerQ(opt.type,i,shuffled);
+grid.appendChild(btn);
+});
+
+document.getElementById(‘fbCard’).className=‘fb’;
+document.getElementById(‘nxtBtn’).className=‘nxt’;
+document.getElementById(‘chaosAlert’).className=‘calert’;
+document.getElementById(‘endCard’).className=‘end-card’;
+}
+
+// ===================== ANSWER =====================
+function answerQ(type,ci,shuffled){
+if(G.answered)return;G.answered=true;
+const sc=G.scenarios[G.idx];
+const btns=document.querySelectorAll(’.opt’);
+btns.forEach(b=>b.disabled=true);
+const smartIdx=shuffled.findIndex(o=>o.type===‘smart’);
+if(type===‘smart’){btns[ci].classList.add(‘ok’);G.correct++;}
+else{
+btns[ci].classList.add(‘ng’);
+btns[smartIdx].classList.add(‘ok’);
+G.chaos=Math.min(G.chaos+34,100);
+if(type===‘funny’)G.funny++;else G.bad++;
+}
+updateChaos();
+document.getElementById(‘corrCnt’).textContent=G.correct;
+if(G.chaos>=100)document.getElementById(‘chaosAlert’).className=‘calert show’;
+const fb=sc.feedbacks[type];
+document.getElementById(‘fbEmo’).textContent=fb.emoji;
+document.getElementById(‘fbCom’).textContent=fb.comment;
+document.getElementById(‘fbTipTxt’).textContent=fb.tip;
+document.getElementById(‘fbCard’).className=’fb show ’+(type===‘smart’?‘fb-ok’:‘fb-ng’);
+document.getElementById(‘nxtBtn’).className=‘nxt show’;
+}
+
+// ===================== NEXT =====================
+function nextScenario(){
+G.idx++;
+if(G.idx>=3)showEnd();
+else{renderScenario();window.scrollTo({top:0,behavior:‘smooth’});}
+}
+
+// ===================== END =====================
+function showEnd(){
+document.getElementById(‘scCard’).style.display=‘none’;
+document.getElementById(‘optsGrid’).style.display=‘none’;
+document.getElementById(‘fbCard’).className=‘fb’;
+document.getElementById(‘nxtBtn’).className=‘nxt’;
+document.getElementById(‘pdots’).style.display=‘none’;
+const c=G.correct,f=G.funny,b=G.bad;
+let td;
+if(c===3)td=TITLES.perfect;
+else if(c===2&&b===0)td=TITLES.good;
+else if(c===2)td=TITLES.mid;
+else if(f>=2)td=TITLES.patchy;
+else if(b>=2)td=TITLES.disaster;
+else td=TITLES.mixed;
+document.getElementById(‘endTrophy’).textContent=td.trophy;
+document.getElementById(‘endTitle’).textContent=td.t;
+document.getElementById(‘endMsg’).textContent=td.msg;
+document.getElementById(‘endC’).textContent=c;
+document.getElementById(‘endF’).textContent=f;
+document.getElementById(‘endD’).textContent=b;
+document.getElementById(‘endTip’).textContent=’ ’+td.tip;
+document.getElementById(‘endCard’).className=‘end-card show’;
+addLB(G.name,c,td.t);
+window.scrollTo({top:0,behavior:‘smooth’});
+}
+
+// ===================== REPLAY =====================
+function replayGame(){
+G.idx=0;G.chaos=0;G.correct=0;G.funny=0;G.bad=0;G.answered=false;
+G.scenarios=pickScenarios();
+document.getElementById(‘scCard’).style.display=‘block’;
+document.getElementById(‘optsGrid’).style.display=‘flex’;
+document.getElementById(‘pdots’).style.display=‘flex’;
+document.getElementById(‘endCard’).className=‘end-card’;
+document.getElementById(‘chaosAlert’).className=‘calert’;
+updateChaos();renderScenario();
+window.scrollTo({top:0,behavior:‘smooth’});
+}
+
+// ===================== LEADERBOARD =====================
+function showLeaderboard(){
+const lb=loadLB();
+const ranks=[‘ ’,‘ ’,‘ ’];
+const html=lb.length===0
+?`<div class="lb-empty"><div class="lb-empty-emo"> </div><div>ما فيه أبطال بعد.. كن أول واحد!</div></div>`
+:lb.map((e,i)=>{
+const isMe=e.name===G.name;
+const date=new Date(e.ts).toLocaleDateString(‘ar-SA’,{month:‘short’,day:‘numeric’});
+return `<div class="lb-row${isMe?' me':''}"> <div class="lb-rank">${i<3?ranks[i]:i+1}</div> <div class="lb-info"><div class="lb-name">${e.name}${isMe?' أنت':''}</div><div class="lb-meta">${e.title} · ${date}</div></div> <div class="lb-score-box"><div class="lb-snum">${e.correct}/3</div><div class="lb-slbl">صح</div></div> </div>`;
+}).join(’’);
+document.getElementById(‘lbContent’).innerHTML=html;
+showScreen(‘screenLB’);window.scrollTo({top:0,behavior:‘smooth’});
+}
+function backFromLB(){showScreen(‘screenGame’);window.scrollTo({top:0,behavior:‘smooth’});}
+function clearLB(){if(confirm(‘تبي تمسح سجل الأبطال كله؟ حتى الأوائل؟’)){saveLB([]);showLeaderboard();}}
+
+// ===================== CHAOS =====================
+function updateChaos(){
+const p=Math.min(G.chaos,100);
+const col=p<34?’#00c853’:p<67?’#ffd600’:p<90?’#ff6d00’:’#ff1744’;
+document.getElementById(‘chaosBar’).style.width=p+’%’;
+document.getElementById(‘chaosBar’).style.background=col;
+document.getElementById(‘chaosPct’).style.color=col;
+document.getElementById(‘chaosPct’).textContent=Math.round(p)+’%’;
+const ai=Math.floor(p/20);
+for(let i=0;i<5;i++){const e=document.getElementById(‘ce’+i);if(p>0&&i<=ai)e.classList.add(‘on’);else e.classList.remove(‘on’);}
+}
+
+// ===================== DOTS =====================
+function updateDots(){
+for(let i=0;i<3;i++){
+const d=document.getElementById(‘dot’+i);d.className=‘dot’;
+if(i<G.idx)d.classList.add(‘done’);
+else if(i===G.idx)d.classList.add(‘active’);
+}
+}
+</script>
+
+</body>
+</html>
