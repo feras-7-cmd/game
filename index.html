@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>يوم في حياة قسم إدارة المرافق</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:'Cairo',sans-serif;
+  background:#0a0f1e;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
+button{
+  padding:12px;
+  margin:5px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+.screen{display:none}
+.active{display:block}
+.lb-empty{color:#aaa}
+
+footer{
+  margin-top:30px;
+  color:#ccc;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌍 زر تغيير اللغة -->
+<div style="position:absolute;top:15px;left:15px;">
+  <button onclick="toggleLang()">🌐</button>
+</div>
+
+<h1 id="title">🔧 يوم في حياة قسم إدارة المرافق</h1>
+<p id="subtitle">كم كارثة راح تسوّيها اليوم؟ 😂</p>
+
+<!-- شاشة الاسم -->
+<div id="sName" class="screen active">
+<input id="nameInput" placeholder="اكتب اسمك">
+<button onclick="startGame()" id="startBtn">ابدأ</button>
+</div>
+
+<!-- شاشة اللعبة -->
+<div id="sGame" class="screen">
+<h2 id="question"></h2>
+<div id="choices"></div>
+<p id="feedback"></p>
+</div>
+
+<!-- شاشة النهاية -->
+<div id="sEnd" class="screen">
+<h2 id="endTitle"></h2>
+<p id="endSub"></p>
+<button onclick="resetGame()" id="restartBtn">إعادة</button>
+<div id="lbContent"></div>
+</div>
+
+<footer>
+قسم إدارة المرافق — برعاية أ. فراس يماني و المهندسين
+</footer>
+
+<script>
+
+// 🌍 الترجمة
+let lang="ar";
+
+const text={
+  ar:{
+    title:"🔧 يوم في حياة قسم إدارة المرافق",
+    subtitle:"كم كارثة راح تسوّيها اليوم؟ 😂",
+    start:"ابدأ",
+    restart:"إعادة",
+    placeholder:"اكتب اسمك",
+    end:"انتهت اللعبة",
+    dept:"🏢 قسم إدارة المرافق"
+  },
+  en:{
+    title:"🔧 A Day in Facility Management",
+    subtitle:"How many disasters will you cause today? 😂",
+    start:"Start",
+    restart:"Restart",
+    placeholder:"Enter your name",
+    end:"Game Over",
+    dept:"🏢 Facility Management Department"
+  }
+};
+
+function toggleLang(){
+  lang = (lang==="ar") ? "en" : "ar";
+  document.documentElement.lang = lang;
+  document.documentElement.dir = (lang==="ar") ? "rtl" : "ltr";
+
+  document.getElementById("title").innerText=text[lang].title;
+  document.getElementById("subtitle").innerText=text[lang].subtitle;
+  document.getElementById("startBtn").innerText=text[lang].start;
+  document.getElementById("restartBtn").innerText=text[lang].restart;
+  document.getElementById("nameInput").placeholder=text[lang].placeholder;
+
+  load(); // تحديث السؤال الحالي
+}
+
+// 🔀 خلط
+function shuffleArray(arr){
+ for(let i=arr.length-1;i>0;i--){
+  let j=Math.floor(Math.random()*(i+1));
+  [arr[i],arr[j]]=[arr[j],arr[i]];
+ }
+ return arr;
+}
+
+// 🎮 سيناريوهات ثنائية اللغة بالكامل
+const scenarios=[
+{
+q:{ar:"💧 تسريب ماء كبير في الدور الثالث!\nالورق يتبلل والموظفين يشتكون.",
+   en:"💧 Major water leak on the 3rd floor!\nPapers are getting wet and staff are complaining."},
+c:[
+{label:{ar:"أبلغ الصيانة فوراً",en:"Report to maintenance immediately"},type:"good",chaos:0,msg:{ar:"تصرف ممتاز 👏",en:"Great decision 👏"}},
+{label:{ar:"أحط دلو تحت التسريب",en:"Place a bucket under the leak"},type:"fix",chaos:15,msg:{ar:"ترقيع مؤقت 😂",en:"Temporary fix 😂"}},
+{label:{ar:"أتجاهل الموضوع",en:"Ignore it"},type:"bad",chaos:35,msg:{ar:"كارثة 💀",en:"Disaster 💀"}}
+]
+},
+
+{
+q:{ar:"⚡ رائحة احتراق من غرفة الكهرباء!",
+   en:"⚡ Burning smell coming from the electrical room!"},
+c:[
+{label:{ar:"أفصل القاطع فوراً",en:"Turn off the breaker immediately"},type:"good",chaos:0,msg:{ar:"بطل 🔥",en:"Heroic move 🔥"}},
+{label:{ar:"أفتح الباب وأشوف",en:"Open the door and check"},type:"fix",chaos:20,msg:{ar:"مجازفة 😂",en:"Risky 😂"}},
+{label:{ar:"أرش معطر جو",en:"Spray air freshener"},type:"bad",chaos:40,msg:{ar:"كارثة 💀",en:"Catastrophic 💀"}}
+]
+},
+
+{
+q:{ar:"🚽 انسداد مفاجئ في دورات المياه!",
+   en:"🚽 Sudden blockage in the restrooms!"},
+c:[
+{label:{ar:"أغلق المنطقة وأبلغ السباكة",en:"Close the area and call plumbing"},type:"good",chaos:0,msg:{ar:"تصرف ممتاز 👌",en:"Excellent move 👌"}},
+{label:{ar:"أحاول أفك السدد",en:"Try to fix it yourself"},type:"fix",chaos:15,msg:{ar:"محاولة شجاعة 😂",en:"Brave attempt 😂"}},
+{label:{ar:"أحط معطر وأمشي",en:"Spray freshener and leave"},type:"bad",chaos:30,msg:{ar:"الوضع أسوأ 💀",en:"Made it worse 💀"}}
+]
+},
+
+{
+q:{ar:"🔥 مكيف يصدر صوت طقطقة وحرارته مرتفعة!",
+   en:"🔥 AC making clicking noises and overheating!"},
+c:[
+{label:{ar:"أفصل المكيف فوراً",en:"Turn off the AC immediately"},type:"good",chaos:0,msg:{ar:"ذكي 👏",en:"Smart 👏"}},
+{label:{ar:"أحط مروحة قدامه",en:"Put a fan in front of it"},type:"fix",chaos:10,msg:{ar:"ترقيع 😂",en:"Patchwork 😂"}},
+{label:{ar:"أطنش",en:"Ignore it"},type:"bad",chaos:35,msg:{ar:"خطر كبير 💀",en:"Huge risk 💀"}}
+]
+},
+
+{
+q:{ar:"🧯 إنذار حريق اشتغل بالغلط أثناء زيارة المدير!",
+   en:"🧯 Fire alarm went off by mistake during the director's visit!"},
+c:[
+{label:{ar:"أوقف الإنذار وأشرح الموقف",en:"Stop the alarm and explain"},type:"good",chaos:0,msg:{ar:"احترافية 👏",en:"Professional 👏"}},
+{label:{ar:"أقول يمكن تدريب",en:"Say it's a drill"},type:"fix",chaos:10,msg:{ar:"كذبة بيضاء 😂",en:"White lie 😂"}},
+{label:{ar:"أتجاهل الإنذار",en:"Ignore the alarm"},type:"bad",chaos:30,msg:{ar:"إحراج كبير 💀",en:"Huge embarrassment 💀"}}
+]
+},
+
+// 💀 BOSS
+{
+boss:true,
+q:{ar:"💀 FINAL BOSS\nانقطاع كهرباء + تسريب ماء + إنذار حريق!",
+   en:"💀 FINAL BOSS\nPower outage + water leak + fire alarm!"},
+c:[
+{label:{ar:"إخلاء + تبليغ + تنسيق",en:"Evacuate + report + coordinate"},type:"good",chaos:5,msg:{ar:"قريب للكمال 👏🔥",en:"Nearly perfect 👏🔥"}},
+{label:{ar:"أوقف الماء أولاً",en:"Stop the water first"},type:"fix",chaos:20,msg:{ar:"أولوية غريبة 😅",en:"Odd priority 😅"}},
+{label:{ar:"أهدّي الموظفين فقط",en:"Calm people only"},type:"bad",chaos:40,msg:{ar:"أسوأ قرار 💀",en:"Worst decision 💀"}}
+]
+}
+];
+
+let step=0,chaos=0,name="";
+let leaderboard=JSON.parse(localStorage.getItem("lb")||"[]");
+
+function startGame(){
+ name=document.getElementById("nameInput").value;
+ if(!name)return alert(lang==="ar"?"اكتب اسمك":"Enter your name");
+
+ shuffleArray(scenarios);
+
+ show("sGame");
+ load();
+}
+
+function load(){
+ let s=scenarios[step];
+
+ document.getElementById("question").innerText=s.q[lang];
+
+ let box=document.getElementById("choices");
+ box.innerHTML="";
+
+ shuffleArray([...s.c]).forEach(c=>{
+  let b=document.createElement("button");
+  b.innerText=c.label[lang];
+  b.onclick=()=>pick(c);
+  box.appendChild(b);
+ });
+}
+
+function pick(choice){
+ chaos+=choice.chaos + Math.floor(Math.random()*6);
+
+ document.getElementById("feedback").innerText=choice.msg[lang];
+
+ setTimeout(()=>{
+  step++;
+  if(step>=scenarios.length) end();
+  else load();
+ },1500);
+}
+
+function end(){
+ document.getElementById("endTitle").innerText=text[lang].end;
+ document.getElementById("endSub").innerHTML=
+`${lang==="ar"?"نسبة الكوارث":"Disaster Score"}: ${chaos}%<br><br>${text[lang].dept}`;
+
+ leaderboard.push({name,chaos});
+ leaderboard.sort((a,b)=>a.chaos-b.chaos);
+ localStorage.setItem("lb",JSON.stringify(leaderboard));
+
+ renderLB();
+ show("sEnd");
+}
+
+function renderLB(){
+ let el=document.getElementById("lbContent");
+
+ if(!leaderboard.length){
+  el.innerHTML='<div class="lb-empty">لا يوجد نتائج بعد</div>';
+  return;
+ }
+
+ el.innerHTML=leaderboard.map(e=>`<div>${e.name} - ${e.chaos}%</div>`).join("");
+}
+
+function resetGame(){
+ step=0;chaos=0;
+ show("sName");
+}
+
+function show(id){
+ ["sName","sGame","sEnd"].forEach(s=>document.getElementById(s).classList.remove("active"));
+ document.getElementById(id).classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
