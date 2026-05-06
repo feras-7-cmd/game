@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>يوم في حياة مهندس صيانة - مستشفى الملك سلمان التخصصي | لعبة توعوية</title>
+<title>يوم في حياة مهندس صيانة - مستشفى الملك سلمان التخصصي | نسخة الكوميديا والكوارث 🤣</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -177,50 +177,50 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
             <span>🏥 مستشفى الملك سلمان التخصصي</span> · الطائف
         </div>
         <div class="main-title">يوم في حياة مهندس الصيانة</div>
-        <div class="sub-title">لعبة توعوية تفاعلية لموظفي المستشفى</div>
+        <div class="sub-title">نسخة الكوميديا والكوارث 🤣 | لعبة توعوية تفاعلية</div>
     </div>
 
     <!-- NAME SCREEN -->
     <div class="screen active" id="screenName">
         <div class="name-card">
-            <div class="name-emo">👷‍♂️</div>
-            <div class="name-ttl">أهلاً وسهلاً بزملاء المهنة!</div>
-            <div class="name-sub">يا هلا فيكم يا نجوم مستشفى الملك سلمان! <br>ادخل اسمك عشان نسجّلك في قائمة الأبطال 🏆</div>
+            <div class="name-emo">👷‍♂️🤡</div>
+            <div class="name-ttl">يا هلا بك يا بطل الصيانة!</div>
+            <div class="name-sub">استعد لمواقف خرافية ومقرفصة على كيفك! <br>اكتب اسمك عشان نشوف قد إيش بتصير مهندس محترف ولا رح تصير كارثة متنقلة 😂</div>
             <input class="name-in" id="nameIn" type="text" placeholder="اكتب اسمك هنا..." maxlength="25" oninput="checkName()" onkeydown="if(event.key==='Enter')tryStart()">
             <div class="name-hint">٢٥ حرف كحد أقصى</div>
             <div class="rules-box">
-                <div class="rule"><div class="rule-ico">1️⃣</div><span>٥ سيناريوهات كارثية مختلفة في كل مرة تلعب!</span></div>
-                <div class="rule"><div class="rule-ico">2️⃣</div><span>اختار الحل الصح من ٣ خيارات — العقل رأس المال!</span></div>
-                <div class="rule"><div class="rule-ico">3️⃣</div><span>كل إجابة خاطئة ترفع مؤشر الفوضى — احترس! 🚨</span></div>
-                <div class="rule"><div class="rule-ico">4️⃣</div><span>نتيجتك تتسجل في لوحة شرف الأبطال 🏅</span></div>
+                <div class="rule"><div class="rule-ico">1️⃣</div><span>٧ سيناريوهات كارثية (فيها سيناريوهات مضحكة نادرة)</span></div>
+                <div class="rule"><div class="rule-ico">2️⃣</div><span>الإجابات تتغير أماكنها كل مرة — لا تغش نفسك!</span></div>
+                <div class="rule"><div class="rule-ico">3️⃣</div><span>كل إجابة خاطئة ترفع مؤشر الفوضى — والله إذا وصل ١٠٠٪ رح تشوف العجب!</span></div>
+                <div class="rule"><div class="rule-ico">4️⃣</div><span>نتيجتك تتسجل في لوحة الشرف — ولا تنسى تشاركها وتفضح نفسك</span></div>
             </div>
-            <button class="start-btn" id="startBtn" onclick="startGame()" disabled>ابدأ اللعبة!</button>
+            <button class="start-btn" id="startBtn" onclick="startGame()" disabled>ابدأ المغامرة!</button>
         </div>
     </div>
 
     <!-- GAME SCREEN -->
     <div class="screen" id="screenGame">
         <div class="score-panel">
-            <div class="sc sc-b"><div class="l">اللاعب</div><div class="v" id="pName">-</div></div>
-            <div class="sc sc-g"><div class="l">صحيحة</div><div class="v" id="corrCnt">0</div></div>
+            <div class="sc sc-b"><div class="l">البطل</div><div class="v" id="pName">-</div></div>
+            <div class="sc sc-g"><div class="l">✔️ صح</div><div class="v" id="corrCnt">0</div></div>
             <div class="sc sc-y"><div class="l">السيناريو</div><div class="v" id="scNum">1/5</div></div>
         </div>
 
         <div class="chaos-sec">
             <div class="chaos-hdr">
-                <div class="chaos-lbl">مؤشر الفوضى</div>
+                <div class="chaos-lbl">🚨 مؤشر الفوضى</div>
                 <div class="chaos-pct" id="chaosPct">0%</div>
             </div>
             <div class="chaos-bg"><div class="chaos-fill" id="chaosBar" style="width:0%;background:var(--green)"></div></div>
             <div class="chaos-emos">
-                <span class="ce" id="ce0">😊</span><span class="ce" id="ce1">🙂</span><span class="ce" id="ce2">😬</span><span class="ce" id="ce3">😱</span><span class="ce" id="ce4">💥</span>
+                <span class="ce" id="ce0">😌</span><span class="ce" id="ce1">😐</span><span class="ce" id="ce2">😬</span><span class="ce" id="ce3">🤯</span><span class="ce" id="ce4">💀</span>
             </div>
         </div>
 
         <div class="calert" id="chaosAlert">
-            <div style="font-size:50px;margin-bottom:12px;">🚨</div>
-            <div style="font-size:20px;font-weight:900;color:var(--red);margin-bottom:8px;">تم استدعاء المهندس الطارئ!</div>
-            <div style="font-size:14px;color:var(--muted);font-weight:700;line-height:1.6;">وصل مؤشر الفوضى للحد الأقصى<br>تحولت العيادة لفيلم رعب!</div>
+            <div style="font-size:50px;margin-bottom:12px;">🤡🚨</div>
+            <div style="font-size:20px;font-weight:900;color:var(--red);margin-bottom:8px;">لحظة كارثية بامتياز!</div>
+            <div style="font-size:14px;color:var(--muted);font-weight:700;line-height:1.6;">مؤشر الفوضى قفز للسقف!<br>المستشفى صار فيلم كرتون!</div>
         </div>
 
         <div class="pdots" id="pdots">
@@ -229,11 +229,13 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
             <div class="dot" id="dot2"></div>
             <div class="dot" id="dot3"></div>
             <div class="dot" id="dot4"></div>
+            <div class="dot" id="dot5"></div>
+            <div class="dot" id="dot6"></div>
         </div>
 
         <div class="sc-card" id="scCard">
-            <div class="sc-badge" id="scBadge">السيناريو الأول</div>
-            <span class="sc-emo" id="scEmo">🚨</span>
+            <div class="sc-badge" id="scBadge">🚨 المشكلة رقم</div>
+            <span class="sc-emo" id="scEmo">🤔</span>
             <div class="sc-txt" id="scTxt"></div>
         </div>
 
@@ -242,25 +244,25 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
         <div class="fb" id="fbCard">
             <div class="fb-emo" id="fbEmo"></div>
             <div class="fb-com" id="fbCom"></div>
-            <div class="fb-tip"><span>💡</span><span id="fbTipTxt"></span></div>
+            <div class="fb-tip"><span>🧠</span><span id="fbTipTxt"></span></div>
         </div>
 
-        <button class="nxt" id="nxtBtn" onclick="nextScenario()">التالي</button>
+        <button class="nxt" id="nxtBtn" onclick="nextScenario()">يلا التي بعدها ➡️</button>
 
         <div class="end-card" id="endCard">
             <div class="end-trophy" id="endTrophy">🏆</div>
             <div class="ttl-badge" id="endTitle"></div>
             <div style="color:var(--muted);font-size:15px;font-weight:700;margin-bottom:20px;line-height:1.8;" id="endMsg"></div>
             <div class="end-stats">
-                <div class="estat"><div class="esv esg" id="endC">0</div><div class="esl">صحيحة</div></div>
-                <div class="estat"><div class="esv esy" id="endF">0</div><div class="esl">ترقيع</div></div>
-                <div class="estat"><div class="esv esr" id="endD">0</div><div class="esl">كوارث</div></div>
+                <div class="estat"><div class="esv esg" id="endC">0</div><div class="esl">✔️ صحيحة</div></div>
+                <div class="estat"><div class="esv esy" id="endF">0</div><div class="esl">🩹 ترقيعات</div></div>
+                <div class="estat"><div class="esv esr" id="endD">0</div><div class="esl">💥 كوارث</div></div>
             </div>
             <div class="end-tip-box" id="endTip"></div>
             <div class="end-btns">
-                <button class="replay-btn" onclick="replayGame()">العب مرة ثانية!</button>
-                <button class="lb-open-btn" onclick="showLeaderboard()">لوحة الأبطال 🏅</button>
-                <button class="share-btn" onclick="shareResult()">شارك النتيجة!</button>
+                <button class="replay-btn" onclick="replayGame()">🔄 العب مرة ثانية!</button>
+                <button class="lb-open-btn" onclick="showLeaderboard()">🏅 لوحة الشرف والمقرفصة</button>
+                <button class="share-btn" onclick="shareResult()">📢 شارك نتيجتك وافتخر</button>
             </div>
         </div>
     </div>
@@ -269,91 +271,115 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
     <div class="screen" id="screenLB">
         <div class="lb-card">
             <div class="lb-hdr">
-                <div class="lb-ico">🏆</div>
+                <div class="lb-ico">🏆🤣</div>
                 <div>
-                    <div class="lb-title">لوحة الأبطال... والكوارث!</div>
-                    <div class="lb-sub">قسم الصيانة × قسم الكوارث الطبيعية</div>
+                    <div class="lb-title">لوحة الشرف... والمواقف الطرشانة!</div>
+                    <div class="lb-sub">قسم الصيانة × الكوميديا السوداء</div>
                 </div>
             </div>
             <div id="lbContent"></div>
-            <button class="back-btn" onclick="backFromLB()">ارجع للعبة</button>
+            <button class="back-btn" onclick="backFromLB()">🔙 ارجع للفوضى</button>
         </div>
     </div>
     
     <div class="sponsor-footer">
         <div class="main-sponsor">⚙️ قسم إدارة المرافق ⚙️</div>
         <div>برعاية الأستاذ / فراس يماني</div>
-        <small>شراكة استراتيجية للتميز التشغيلي</small>
+        <small>شراكة استراتيجية للتميز التشغيلي والضحك على الكوارث</small>
     </div>
 </div>
 
 <script>
-// بيانات اللعبة - 5 سيناريوهات عربية
-const SCENARIOS = [
-    {id:1, emoji:"💧", text:"🚨 <strong>طوارئ مكيف المكتب:</strong> جالس في مكتبك وراك ملفات وضغط شغل، وفجأة المكيف قرر يتحول لـ'شلال' ويصب موية فوق ملفات المريض! الموية شاطحة والأوراق تبتل بسرعة.. الملفات تحتوي بيانات طبية حساسة! وش بتسوي يا بطل؟",
+// القائمة الكاملة للسيناريوهات (5 أساسية + 2 كوميديين نادرين = 7)
+const ALL_SCENARIOS = [
+    {id:1, emoji:"💧", text:"🚨 <strong>طوارئ مكيف المكتب - سيلان تاريخي:</strong> جالس في مكتبك وراك ملفات مرضى حساسة، وفجأة المكيف صار مثل 'شلالات الهدا' ويسكب موية على كل شي! الدكتور الفلاني يصرخ، الملفات تتبلل، والمشرف يصورك بالجوال. وش بتسوي يا بطل؟",
      options:[
-        {type:"smart", text:"أحط سطل أو كيس نايلون فوراً تحت الموية، أنقل الملفات لمكان جاف، وأتصل بقسم الصيانة على طول وأوصف المشكلة بدقة (موقع + نوع التسرب)"},
-        {type:"funny", text:"أجيب لصقة جروح من العيادة وأطبّقها فوق فتحة المكيف، وأوزع مناديل ورقية فوق الملفات عشان تشفط الموية 😂"},
-        {type:"bad", text:"أطفي المكيف وأفك الغطاء وأبدأ أفتش في الأسلاك بيدي وهي مبلولة، أكيد قادر أصلحه! ⚡💦"}
+        {type:"smart", text:"أحط سطل بسرعة تحت الموية (ولو كان سلة مهملات نظيفة)، أنقل الملفات لمكان جاف، وأتصل بالصيانة وأوصف الموقع زي الجيش"},
+        {type:"funny", text:"أجيب لصقة جروح من العيادة وأحاول أسد تسريب المكيف... لحظة مين جاب لصقة جروح هنا؟ 😂 ورش مناديل فوق الملفات عشان تشفط! والمشرف يطق رأسه بالجدار"},
+        {type:"bad", text:"أطفي المكيف وأفك الغطاء بايدي وانا واقف تحت الموية! أكيد رح أصلحه لأني شايف يوتيوب أمس 🔧💦 والممرضة تصورني للسناب"}
      ],
-     feedbacks:{smart:{emoji:"✅", comment:"كفو والله! 🎉 هذا مهندس صيانة متخفي في بدلة موظف! حميت الملفات الطبية الحساسة وبلّغت الصيانة فوراً!", tip:"التصرف السريع بحماية الموجودات + الإبلاغ الدقيق يمنع خسارة بيانات المرضى وأضرار تتضاعف."},
-                funny:{emoji:"😂", comment:"لصق جروح عاد؟! يا أخي هذا مكيف مو جرح في إصبعك! الصيانة تقولك: تكفى لا تجتهد وبلغنا بس! 😅", tip:"الحلول المؤقتة تخفي المشكلة وتجعلها أخطر. البلاغ الفوري + الوصف الدقيق هو الصواب."},
-                bad:{emoji:"🚫", comment:"يا ساتر!! ⚠️ تبي تحرق المستشفى علينا؟! موية + كهرباء = صاعقة مضمونة + حريق! سلامتك أهم من المكيف!", tip:"🚨 لا تلمس الأجهزة الكهربائية المبللة أبداً! افصل الكهرباء من المفتاح الرئيسي وأبلغ فوراً."}}},
-    {id:2, emoji:"🔌", text:"🔥 <strong>شرار كهربائي خطير:</strong> في عز الدوام، فيش الكمبيوتر في مكتبك فجأة طلع شرار أصفر برتقالي مع ريحة بلاستيك محترق! الكمبيوتر طفى لحاله.. القسم كله خايف وشايف الدخان! المرضى في الانتظار وقريب من المكتب. وش الخطوة الأولى؟",
+     feedbacks:{smart:{emoji:"✅😂", comment:"كفو والله! 🎉 مهندس متخفي بهيئة إداري! حتى المشرف صفق لك!", tip:"التصرف السريع بحماية الملفات + الإبلاغ = MVP في الصيانة"},
+                funny:{emoji:"😂🤡", comment:"لصقة جروح؟! على مكيف؟؟ ياحبيبي هذا مكيف مو استامبل! الصيانة تقول: تكفى لا تكثر اجتهاد 🤣", tip:"اللصقات للمرضى مو للمكيفات. البلاغ الفوري أنقذ مستقبلك الوظيفي"},
+                bad:{emoji:"⚡💀", comment:"وقف شوي... موية ساقطة + كهرباء مفتوحة = صاعقة كهربائية على فلم كرتون! قسم الطوارئ يجهزون لك سرير", tip:"لا تلمس الأجهزة الكهربائية المبللة لو سمحت. سلامتك أهم من المكيف}}"}}},
+    {id:2, emoji:"🔌", text:"🔥 <strong>شرار كهربائي + رائحة محروق:</strong> فجأة الفيشة حق الكمبيوتر طلعت شرار زي الألعاب النارية وريحة بلاستيك محترق! الزبائن شايفينك والمشرف يصرخ 'وش ذا؟!' والمراجعين خايفين.. تتصرف؟",
      options:[
-        {type:"smart", text:"أطلب من الجميع الابتعاد فوراً عن المنطقة، أبلغ قسم الصيانة الكهربائية فوراً مع وصف دقيق، وأبلغ مسؤول الطابق — لا أقترب من الفيش أو أحاول أسحبه"},
-        {type:"funny", text:"أجيب فوطة مبللة من الحمام وأحاول أطفي الشرار، وبعدين أشيل الفيش بإيدي وعليها الفوطة كـ'عازل' 🛁💦"},
-        {type:"bad", text:"أجيب الكمبيوتر الاحتياطي وأوصّل الفيش القديم المحترق فيه عشان أشوف إذا الفيش هو المشكلة! 🔌🔥"}
+        {type:"smart", text:"أصرخ بأعلى صوتي 'شيلوا أنفسكم!!!'، أخلّي المكان، أبلغ الصيانة الكهربائية وأعلم المشرف.. وبعدين أطلب كفي"},
+        {type:"funny", text:"أجيب فوطة مبللة من الحمام وأرجع أحاول أطفي الشرار وأنا متحمس... وأقول للمشرف: أنا أخوك لا تخاف 🧞‍♂️💦"},
+        {type:"bad", text:"أجيب كمبيوتر ثاني وأوصّله بنفس الفيشة عشان أتأكد إذا الشرار من الفيشة ولا من الكمبيوتر الأول 🔌💥🔥"}
      ],
-     feedbacks:{smart:{emoji:"✅", comment:"أبطال! 👏 واللهي هذا التصرف الصح! أخليت الجميع بأمان وأبلغت المختصين بدقة. كفو يا مسؤول!", tip:"🔌 شرار كهربائي: ابتعد فوراً، لا تستخدم الماء، أبلغ الصيانة الكهربائية + مسؤول الطابق."},
-                funny:{emoji:"😂", comment:"فوطة مبللة على كهرباء؟! 💦⚡ الماء ينقل الكهرباء يا نجم مو يحميك منها! روح حياتك أثمن من الفيش!", tip:"🚫 لا تستخدم الماء مع الحرائق الكهربائية! الماء موصّل وقد يسبب صعقة قاتلة."},
-                bad:{emoji:"🚫", comment:"توصّل الفيش المحترق في جهاز ثاني؟! 😱 تبي تحرق جهازين بدل واحد؟! هذا مكتب مو مختبر!", tip:"🔥 لا تعيد توصيل مكونات محترقة. الحريق الكهربائي يحتاج متخصص معتمد."}}},
-    {id:3, emoji:"🚪", text:"🏥 <strong>باب غرفة الفحص يصدر صوتاً:</strong> الدكتور في منتصف فحص مريض مهم.. وفجأة باب غرفة الفحص يطلع صوت 'صَر صَر' أزيز مزعج ما يوقف! المريض يعبّس والدكتور ينظر لك أنت بالذات! الفحص طبي حساس والمريض متوتر. وش تسوي؟",
+     feedbacks:{smart:{emoji:"✅🏆", comment:"أبطال! حرفياً أنقذت الموقف ببرود أعصاب! رئيس المستشفى يبغى يتعشى معك", tip:"كهرباء + شرار = إخلاء أولاً ثم البلاغ. أنت ما عندك صوفية تصليح"},
+                funny:{emoji:"😂🔥", comment:"فوطة مبللة على قضية كهرباء؟ حبيبي هذا مسلسل مو فيلم رعب! 😅💦 الكهرباء ما تبي فوطة تبي مهندس", tip:"الماء يوصل الكهرباء. بتموت كهرباء وما تخلص الترقيع"},
+                bad:{emoji:"🚫😂", comment:"توصّل فيشة محترقة في كمبيوتر ثاني؟! بتصير مشكلة: كمبيوتر واحد متفحم يكفي 😱💀 أنت مهندس حرق لا صيانة", tip:"لا تعيد استخدام أي قطعة كهربائية محترقة ابداً"}}},
+    {id:3, emoji:"🚪", text:"🏥 <strong>باب غرفة الفحص - صرير يزلزل الجبال:</strong> الدكتور يفحص مريض بيمرض ومحد يفهم شي، وفجأة الباب يطلع صرير 'قرييييييييييب' يصحى النايمين في العيادة! الدكتور يبصلك والعيان يضحك.. تصرف؟",
      options:[
-        {type:"smart", text:"أسجّل بلاغ في نظام الصيانة بعد انتهاء الفحص، وأبلغ مشرفي فوراً عشان يرسلون مهندس صيانة متخصص، وأطمّن الدكتور"},
-        {type:"funny", text:"أجيب زيت الزيتون من كافيتيريا الموظفين وأدهن المفصلة بإيدي وسط الفحص عشان يسكت الصوت 🥄🛢️"},
-        {type:"bad", text:"أفك مفصلة الباب بالمفك وأشيلها كلها وأترك الباب معلّق عشان يهدأ الصوت نهائياً! 🔧🚪"}
+        {type:"smart", text:"أسجل بلاغ في نظام الصيانة بعد انتهاء الفحص (ما أبي أقطع على الدكتور)، وأرسل واتس لمشرفي: 'باب عيان، أرسل مهندس بسرعة قبل ما انطرد'"},
+        {type:"funny", text:"أجيب زيت الزيتون من كافتيريا الموظفين واروح أدهن المفصلة وأنا أغمز للدكتور: 'عندنا حلول بسيطة' 🥄🛢️"},
+        {type:"bad", text:"أجيب مفك من سيارتي وأفك مفصلة الباب كلها وأخلي الباب يتعلق بخيطان الكهرباء عشان يسكت الصوت 🔧🚪😭"}
      ],
-     feedbacks:{smart:{emoji:"✅", comment:"ماشاء الله عليك! 👨‍⚕️ عرفت إن سلامة الفحص الطبي أهم، وبلّغت الصيانة بالطريقة الرسمية الصحيحة!", tip:"📋 الإبلاغ عبر النظام الرسمي يضمن توثيق المشكلة ومتابعتها، وعدم نسيانها."},
-                funny:{emoji:"😂", comment:"زيت زيتون؟! 😅 يا حبيبي هذا باب غرفة فحص مو سلطة! الدكتور رح يطردك هو والزيتون معك!", tip:"🛢️ الحلول الارتجالية بمواد غير مخصصة قد تتلف المفصلة أكثر. الإبلاغ الصحيح هو الحل الدائم."},
-                bad:{emoji:"🚫", comment:"شلّعت الباب؟! 😱 الحين عندنا غرفة فحص بدون باب والمريض يتفرج عليه الممر كله! خصوصية المريض؟!", tip:"🚪 لا تفك أجزاء أبواب أو معدات المستشفى أبداً دون تفويض رسمي."}}},
-    {id:4, emoji:"🩸", text:"🧪 <strong>تسرب مواد كيميائية خطيرة:</strong> انسكبت كمية من مطهر قوي في ممر المرضى، الرائحة خانقة والأرض زلقة! المرضى يمرون والأطفال موجودين. وش أول تصرف؟",
+     feedbacks:{smart:{emoji:"✅👏", comment:"ما شاء الله! عرفت تبعد عن المشكلة بطريقة دبلوماسية. الدكتور مسح عرقه وصار يحترمك", tip:"الإبلاغ بالنظام الرسمي يضمن التوثيق والمتابعة. برافو عليك"},
+                funny:{emoji:"😂🫒", comment:"زيت زيتون على باب غرفة فحص؟! 😅 الدكتور حلف ما ياكل زيتون ثاني بحياته. الصيانة تقول: ريحتك تدخل وانت ما جيت", tip:"مواد المطبخ للأكل مو للباب. التبليغ الرسمي أفضل"},
+                bad:{emoji:"🚪💀", comment:"شلّعت الباب! الحين غرفة فحص بدون باب، والمبنى كله يتفرج على المريض. خصوصية صفر، والمشرف يبحث عنك في القطاع", tip:"لا تفك أجزاء من المستشفى أبداً بدون أمر رسمي"}}},
+    {id:4, emoji:"🩸", text:"🧪 <strong>تسرب كيميائي - سهل زلقة:</strong> انسكبت كمية كبيرة من مطهر قوي في الممر الرئيسي، الرائحة قوية والأرض زلقة كأنها حلبة تزلج! المرضى يسقطون والمشرف يطق رأسه. كان الله في عونك؟",
      options:[
-        {type:"smart", text:"أغلق المنطقة فوراً، أمنع أي شخص من المرور، أبلغ فريق السلامة والصيانة الطارئة مع وصف المادة الكيميائية"},
-        {type:"funny", text:"أجيب ممسحة عادية وبدأ أمسح المادة بسرعة عشان ما يشوفها أحد 🧹"},
-        {type:"bad", text:"أحاول أجمع المادة بيدي بدون قفازات وأحطها في سلة المهملات العادية"}
+        {type:"smart", text:"أحط موانع مرور بسرعة (كرسي، طاولة، أي شي)، أصرخ 'لا حد يمر هنا'، أبلغ السلامة والصيانة وأشرح لهم المادة المسكوبة"},
+        {type:"funny", text:"أجيب ممسحة عادية واقعد أمسح بكل قوة عشان ما يشوفوني فاشل... والمطهر يتبخر ويصير دخان سام 🧹💨🤡"},
+        {type:"bad", text:"أحط إيدي بدون قفازات وأحاول أجمع المادة الكيميائية وأرميها في سلة المهملات... يا رب ما تنحرق يدي 🧪🔥"}
      ],
-     feedbacks:{smart:{emoji:"✅", comment:"وعيك عالي! 🛡️ إغلاق المنطقة وحماية المرضى أولاً ثم الإبلاغ المتخصص هو البروتوكول الصحيح 100%", tip:"⚠️ المواد الكيميائية تحتاج فريق متخصص للتنظيف والتعامل الآمن."},
-                funny:{emoji:"😂", comment:"ممسحة عادية؟! 😅 المواد الكيميائية القوية ممكن تتفاعل مع الممسحة وتصير أبخرة سامة!", tip:"لا تستخدم أدوات غير مخصصة مع المواد الكيميائية أبداً."},
-                bad:{emoji:"🚫", comment:"يا عيني على شجاعتك ولكن غلط! 😱 المواد الكيميائية تحرق الجلد وقد تسبب حروق وتسمم!", tip:"حماية النفس أولاً: ابتعد وأبلغ المتخصصين، لا تلمس أي مادة كيميائية بدون معدات وقاية."}}},
-    {id:5, emoji:"💨", text:"🔥 <strong>رائحة غاز قوية:</strong> فجأة انتشرت ريحة غاز قوية قريب من المطبخ الرئيسي، المراجعين بدأوا يتنحنحون والإدارة في حالة هلع. فيه احتمال تسرب غاز خطير! وش تسوي؟",
+     feedbacks:{smart:{emoji:"✅🛡️", comment:"وعيك العالي أنقذ الموقف! فريق السلامة قالوا توظيفك كويس؟", tip:"المواد الكيميائية تحتاج فريق متخصص، إغلاق المنطقة أولاً ضروري"},
+                funny:{emoji:"😂💨", comment:"ممسحة عادية؟ مع مواد كيميائية قوية؟ 😅 المادة ردت عليك وأصبحت أبخرة سامة... المشرف يشتمك من بعيد", tip:"لا تستخدم أدوات غير مخصصة أبداً مع المواد الكيميائية"},
+                bad:{emoji:"🔥😭", comment:"يدك بدون قفازات؟ إييييييه يا حسافة! المستشفى كله سمع صوت صرختك. قسم الحروق استقبلك بالورود", tip:"لا تلمس أي مادة كيميائية بدون معدات وقاية - صحتك أولاً"}}},
+    {id:5, emoji:"💨", text:"🔥 <strong>غاز غامض برائحة بيض فاسد:</strong> فجأة انتشرت ريحة غاز قوية بجوار المطبخ الرئيسي، الممرضات شايلين هم، المراجعين يهربون. ريحة البيض وصلت لدكاترة كبار وتبي تكشير. انت واقف تصرف؟",
      options:[
-        {type:"smart", text:"أطلب إخلاء المنطقة فوراً، أفتح الشبابيك للتهوية، أمنع أي شخص من استخدام الكهرباء أو الولاعات، وأبلغ الدفاع المدني والصيانة"},
-        {type:"funny", text:"أجيب معطر جو وأعطر المكان عشان تخف الريحة 🌸"},
-        {type:"bad", text:"أشغل ولاعة صغيرة عشان أتأكد إذا كان فيه غاز ولا لا! 🔥"}
+        {type:"smart", text:"أطلب إخلاء المنطقة حالاً (بأدب واحترام)، أفتح الشبابيك عشان التهوية، أمنع أي استخدام للكهرباء أو الولاعات، وأتصل بالدفاع المدني والصيانة بسرعة"},
+        {type:"funny", text:"أجيب معطر جو 'فلورال' وأبعثر المكان... عشان الريحة تختلط مع ريحة الغاز وتصير رائحة فريدة من نوعها 🌸💨🤡"},
+        {type:"bad", text:"أطلع ولاعة من جيبي وأقول: خليني أتأكد إذا في غاز ولا... 🔥💥😱"}
      ],
-     feedbacks:{smart:{emoji:"✅", comment:"بطل! 👏 هذا هو التصرف السليم 100%! الإخلاء + التهوية + منع مصادر الاشتعال = حماية الأرواح", tip:"⛔ غاز طبيعي: لا تشغل أي جهاز كهربائي، لا تستخدم الولاعات، أخلِ المكان فوراً وأبلغ الطوارئ."},
-                funny:{emoji:"😂", comment:"معطر جو مع رائحة غاز؟! 😅 هذا يضاعف الكارثة يا حبيبي!", tip:"لا تحاول إخفاء رائحة الغاز أبداً — هذا خطير جداً ويؤخر الإخلاء."},
-                bad:{emoji:"💥", comment:"يا ساتر لاااا! 🔥💣 الولاعة مع وجود غاز تسوي انفجار يهدم المستشفى! اترك التمثيل للأفلام!", tip:"🚨 أي شرارة قد تسبب انفجاراً هائلاً. أخلِ المكان فوراً وأبلغ المختصين."}}}
+     feedbacks:{smart:{emoji:"✅🦸", comment:"بطل!! الإخلاء والتهوية ومنع مصادر الاشتعال = MVP في الكوارث. رئيس المستشفى يبغى يصور معك سيلفي", tip:"غاز طبيعي = لا تشغل شي، أخلِ المكان فوراً، وأبلغ الطوارئ"},
+                funny:{emoji:"😂🌸", comment:"معطر جو مع رائحة غاز؟ 😅 بتصير ريحة 'فلورال غازي' متطورة. المشرف قال: طردوه بعد ما يشم معطره", tip:"لا تحاول تخفي ريحة الغاز أبداً - خطير جداً"},
+                bad:{emoji:"💥🤡", comment:"يا ساتر لاااا! الولاعة مع وجود غاز = انفجار يرج المبنى! المستشفى صار حفرة! الله يكون بعون أهلك", tip:"⚡ شرارة وحدة تنهي كل شي. أخلِ المكان فوراً واترك التمثيل للأفلام"}}},
+    // سيناريو كوميدي نادر رقم 1 - ما يطلع لكل الناس
+    {id:6, emoji:"🐀", rarity:"rare", text:"🐀 <strong>أزمة فأر في غرفة العمليات:</strong> والدكتور جالس يشتغل عملية وجراحته حساسة... وفجأة فأر صغير يعدي من تحت رجل الدكتور! الدكتور يصرخ 'أستغفر الله!'، المريض يقوم يركض، والممرضة تتغشى! والفأر ضحك عليهم كلهم وطار. انت المسؤول عن الصيانة، وش بتسوي في هاللحظة الكوميدية التاريخية؟ 🤣",
+     options:[
+        {type:"smart", text:"أهدي الجميع (بالعافية) وأقولهم أنا بكلم شركة مكافحة الحشرات والقوارض بعد العملية، وأحاول أشيل الفأر بحذر واقلعه برا دون ما يخرب العملية"},
+        {type:"funny", text:"أمسك المكنسة الكهربائية وأحاول أشفط الفأر بسرعة الصاروخ، ولكن الفأر يتفاداني ويصير مثل لعبة 'قطار الموت' في غرفة العمليات! 🧹🐀💨"},
+        {type:"bad", text:"أصرخ مثل مجنون: 'اقتلوه اقتلوه!' وأجيب عصا وأحاول أضرب الفأر والفأر يقفز على رأس الدكتور.. ويصير هوس وكأنه فيلم مصري قديم"}
+     ],
+     feedbacks:{smart:{emoji:"✅🐭", comment:"برافووو! تعاملت مع الموقف بهدوء أعصاب مع أن قلبك كان يدق. إدارة المستشفى رشحتك لجائزة أحسن موظف!", tip:"الهدوء في المواقف الطارئة + التبليغ السريع = الموظف المثالي"},
+                funny:{emoji:"😂🧹", comment:"مكنسة كهربائية في غرفة العمليات؟ الفأر صار أسرع من الصوت والدكتور تجيه غيبوبة ضحك! إدارة الجودة منعت المكنسة من دخول المستشفى", tip:"المكنسة الكهربائية ليست حلاً لمشكلة فأر في عملية جراحية ابداً"},
+                bad:{emoji:"🐀💀", comment:"عصا في غرفة عمليات؟ الفأر قفز على الدكتور والمريض مسك نفسه وجري. إدارة المستشفى طردتك من الباب الطوارئ! 😂", tip:"لا تتحول لهستيري... التعاقد مع شركة مكافحة هو الحل، لا العصا والهوشة"}}},
+    // سيناريو كوميدي نادر رقم 2 - ما يطلع لكل الناس
+    {id:7, emoji:"📱", rarity:"rare", text:"📱 <strong>موظف عالق في المصعد مع السماعة الطبية:</strong> المصعد الكهربائي وقف بين الدورين، وفيه موظف طوارئ معه سماعة طبية لأجهزة الإنعاش. الموظف خايف من الظلمة، والسماعة لازم توصل لقسم الطوارئ خلال ٥ دقايق قبل أن يتوفى المريض المنقول. المصعد ما يتحرك، الموظف يصرخ ويبكي، وأنت الصيانة تجري وتفكر بحل كوميدي سريع. وش تسوي؟ 🤣",
+     options:[
+        {type:"smart", text:"أجري لغرفة الماكينات وأعيد تشغيل المصعد يدوياً بعد ما أتأكد من السلامة. وفي نفس الوقت أطلب من فريق ثاني يجيب سماعة بديلة من المستودع لتوصيلها بسرعة. حل احترافي سريع!"},
+        {type:"funny", text:"أقول للموظف: ارمي السماعة من فتحة المصعد وأنا أمسكها! 🤡 وبيني وبينه ستة أدوار، وهو يرمي والسماعة تتكسر على الأرض. والموظف يقول: كان الله في عون المريض"},
+        {type:"bad", text:"أنادي كل الموظفين: تعالوا نفتح باب المصعد بالقوة! يجي ٣٠ موظف يحاولون يفتحون المصعد بالأيد، ويطلع السوبرفايزر يطردهم واحد واحد"}
+     ],
+     feedbacks:{smart:{emoji:"✅🛠️", comment:"تصرف في منتهى الذكاء والاحترافية! المريض نجا، والموظف طلع من المصعد يبوس راسك. إدارة المستشفى منحتك ترقية سريعة", tip:"التصرف السريع + التواصل الفعال + الحلول البديلة = مهندس صيانة أسطوري"},
+                funny:{emoji:"😂📱", comment:"لااا! السماعة تطير وتنكسر، المريض المنقول للطوارئ ما عاد يقدر يوصل للأجهزة. الأطباء بيذبحونك ذبح لو يعرفون", tip:"المعدات الطبية غالية جداً... تفكيرك خارج الصندوق أحياناً يكلف المستشفى مبلغ كبير 🤣"},
+                bad:{emoji:"🚪💀", comment:"جمعت ٣٠ موظف عشان يفتحوا المصعد بالأيدي؟ المصعد يتصل على الأمن ويشتكيك. السوبرفايزر قال: لك راتب شهر تأديبي عشان الإثارة الجماعية", tip:"لا تحاول تحل مشاكل المصعد بالقوة البدنية أو التجمع دون خطة"}}}
 ];
 
-let G = {name: '', idx: 0, sessionUsed: [], scenarios: [], chaos: 0, correct: 0, funny: 0, bad: 0, answered: false};
+let G = {name: '', idx: 0, sessionUsed: [], scenarios: [], chaos: 0, correct: 0, funny: 0, bad: 0, answered: false, totalScenarios:5};
 
-function loadLB(){try{return JSON.parse(localStorage.getItem('ksmc_lb_ar')) || [];}catch{return[];}}
-function saveLB(d){localStorage.setItem('ksmc_lb_ar', JSON.stringify(d));}
+function loadLB(){try{return JSON.parse(localStorage.getItem('ksmc_lb_ar_comedy')) || [];}catch{return[];}}
+function saveLB(d){localStorage.setItem('ksmc_lb_ar_comedy', JSON.stringify(d));}
 function addLB(name, correct, title){let lb=loadLB(); lb.push({name,correct,title,ts:Date.now()}); lb.sort((a,b)=>b.correct-a.correct||b.ts-a.ts); saveLB(lb.slice(0,50));}
 
+// اختيار 5 سيناريوهات من أصل 7، بحيث السيناريوهات النادرة قد تطلع وقد لا تطلع
 function pickScenarios(){
-    let avail = SCENARIOS.filter(s=>!G.sessionUsed.includes(s.id));
-    if(avail.length<5){ G.sessionUsed=[]; avail=SCENARIOS.slice(); }
-    let picked = avail.sort(()=>Math.random()-.5).slice(0,5);
-    picked.forEach(s=>G.sessionUsed.push(s.id));
-    return picked;
+    let allScenariosCopy = [...ALL_SCENARIOS];
+    for(let i=allScenariosCopy.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [allScenariosCopy[i],allScenariosCopy[j]]=[allScenariosCopy[j],allScenariosCopy[i]];
+    }
+    let selected = allScenariosCopy.slice(0,5);
+    selected.forEach(s=>G.sessionUsed.push(s.id));
+    return selected;
 }
 
 function startGame(){
     G.name = document.getElementById('nameIn').value.trim();
-    G.idx=0; G.chaos=0; G.correct=0; G.funny=0; G.bad=0; G.answered=false;
+    G.idx=0; G.chaos=0; G.correct=0; G.funny=0; G.bad=0; G.answered=false; G.totalScenarios=5;
     G.scenarios = pickScenarios();
     document.getElementById('pName').textContent = G.name;
     showScreen('screenGame');
@@ -362,6 +388,7 @@ function startGame(){
     document.getElementById('scCard').style.display='block';
     document.getElementById('optsGrid').style.display='flex';
     document.getElementById('pdots').style.display='flex';
+    updateDots();
     updateChaos();
     renderScenario();
 }
@@ -371,10 +398,11 @@ function renderScenario(){
     G.answered=false;
     document.getElementById('scEmo').textContent = sc.emoji;
     document.getElementById('scTxt').innerHTML = sc.text;
-    document.getElementById('scBadge').textContent = `السيناريو ${G.idx+1}`;
+    document.getElementById('scBadge').innerHTML = `🚨 سيناريو ${G.idx+1} ${sc.rarity=== 'rare'? '⭐ (نادر وكوميدي)' : ''}`;
     document.getElementById('scNum').textContent = (G.idx+1)+'/5';
     document.getElementById('corrCnt').textContent = G.correct;
     updateDots();
+    // خلط الإجابات عشوائياً
     let shuffled = sc.options.slice().sort(()=>Math.random()-.5);
     let grid = document.getElementById('optsGrid');
     grid.innerHTML = '';
@@ -427,12 +455,12 @@ function nextScenario(){
 }
 
 const TITLES = {
-    perfect: {t:"🏆 أسطورة الصيانة!", trophy:"👑", msg:"5/5 مثالية! أنت بطل حقيقي للصيانة الوقائية!", tip:"إتقانك للإجراءات الرسمية يحمي المرضى والموظفين!"},
-    good: {t:"⭐ نجم الصيانة!", trophy:"🏅", msg:"ممتاز! 4/5 إجابات صحيحة. قريب من الاحترافية الكاملة!", tip:"استمر في تطبيق الإجراءات الصحيحة وكن قدوة للزملاء."},
-    mid: {t:"🔥 كادر واعد!", trophy:"🔥", msg:"أداء جيد جداً! مع التدريب المستمر ستصبح خبيراً", tip:"الحلول الذكية + الإبلاغ الفوري هما مفتاح النجاح."},
-    patchy: {t:"🩹 مهندس ترقيع!", trophy:"🩹", msg:"إبداعك يحل المشاكل مؤقتاً، لكن الحلول الرسمية هي الأفضل", tip:"الترقيع يخفي العيوب، الإبلاغ الرسمي يحل الجذور."},
-    disaster: {t:"💥 ملك الكوارث!", trophy:"💥", msg:"يا لطيف! الصيانة طلبت إجازة!\nنحتاج تدريب مكثف!", tip:"كل خطأ نتعلم منه. ركز على الإبلاغ الفوري وعدم التسرع."},
-    mixed: {t:"🎢 المغامر!", trophy:"🎢", msg:"خليط من الصح والترقيع والكوارث! رحلة مثيرة!", tip:"التزم بالإجراءات الرسمية وستحقق نتائج مثالية."}
+    perfect: {t:"🏆 أسطورة الصيانة الكوميدية!", trophy:"🏆🤣", msg:"أنت مهندس أسطوري حتى الضحك يخاف منك! 5/5 إجابات سليمة وعقلك أشطر من مهندس!", tip:"لا تغير شيء... أنت قدوة لكل مهندس صيانة في المملكة!"},
+    good: {t:"⭐ مهندس في صف النجوم", trophy:"⭐😂", msg:"أداء رائع! 4/5 - نص المشاكل حليتها بذكاء والنص الثاني ضحكت عليها", tip:"زيادة التركيز يوصل للكمال، بس لا توقف إضحاك الناس"},
+    mid: {t:"🔥 مهندس طقطقة واجتهاد", trophy:"🔥", msg:"أداء مشرف جداً! نص الصح ونص ترقيع... بس الجو العام مضحك", tip:"ممتاز لكن تستطيع الأفضل مع شوية تدريب"},
+    patchy: {t:"🩹 مهندس ترقيع أول", trophy:"🩹🤣", msg:"إبداعك في الترقيع يفوق الخيال! بس تذكر: الترقيع للحلول المؤقتة مو للجوائز", tip:"حاول تتعلم البروتوكولات الرسمية... الترقيع أحياناً يخفي مشاكل اكبر"},
+    disaster: {t:"💥 كارثة متنقلة مع شوية فكاهة", trophy:"💥😂", msg:"يا ساتر ياربي! الصيانة كلها استقالت خوفاً من تصرفاتك! بس نعترف فيك موهبة ضحك جماهيرية", tip:"الخطأ وارد بس الأهم التعلم... استرخي وتعلم الإجراءات الصحيحة"},
+    mixed: {t:"🎢 لاعب على الحبلين", trophy:"🎢🤡", msg:"مزيج مثير من الصواب والخطأ والضحك... أنت حالة فريدة في عالم الصيانة", tip:"مع الممارسة رح تتحسن... أهم شي ما تصير الفيلم الكوميدي اليومي بقسم الصيانة"}
 };
 
 function showEnd(){
@@ -454,7 +482,7 @@ function showEnd(){
     document.getElementById('endC').textContent=c;
     document.getElementById('endF').textContent=f;
     document.getElementById('endD').textContent=b;
-    document.getElementById('endTip').innerHTML='💡 '+td.tip;
+    document.getElementById('endTip').innerHTML='🧠💡 '+td.tip;
     document.getElementById('endCard').className='end-card show';
     addLB(G.name, c, td.t);
     window.scrollTo({top:0});
@@ -475,19 +503,19 @@ function replayGame(){
 
 function shareResult(){
     let score = `${G.correct}/5`;
-    let text = `🏥 حققت ${score} في لعبة 'يوم في حياة مهندس الصيانة' - مستشفى الملك سلمان! ${G.name}`;
+    let text = `🏥 مستشفى الملك سلمان: حققت ${score} في لعبة 'يوم في حياة مهندس صيانة' (النسخة الكوميدية)! ${G.name} 🤣`;
     if(navigator.share){
-        navigator.share({title:'نتيجتي في لعبة الصيانة', text:text});
+        navigator.share({title:'نتيجتي الكارثية في لعبة الصيانة', text:text});
     } else {
-        navigator.clipboard.writeText(text).then(()=>alert('تم نسخ النتيجة! شاركها مع زملائك 📋'));
+        navigator.clipboard.writeText(text).then(()=>alert('📋 تم نسخ نتيجتك! شاركها وزملاءك يموتون ضحك'));
     }
 }
 
 function showLeaderboard(){
     let lb = loadLB();
     let ranks = ['🥇', '🥈', '🥉'];
-    let html = lb.length===0 ? `<div class="lb-empty"><div class="lb-empty-emo">🏆</div><div>ما فيه أبطال بعد.. كن أول واحد!</div></div>`
-        : lb.map((e,i)=>`<div class="lb-row${e.name===G.name?' me':''}"><div class="lb-rank">${i<3?ranks[i]:i+1}</div><div class="lb-info"><div class="lb-name">${e.name}${e.name===G.name?' (أنت)':''}</div><div class="lb-meta">${e.title} · ${new Date(e.ts).toLocaleDateString('ar-SA')}</div></div><div class="lb-score-box"><div class="lb-snum">${e.correct}/5</div><div class="lb-slbl">صحيحة</div></div></div>`).join('');
+    let html = lb.length===0 ? `<div class="lb-empty"><div class="lb-empty-emo">🏆🤡</div><div>ما فيه أبطال مسجلين... كن أول واحد تفضح نفسك وتضحك معانا!</div></div>`
+        : lb.map((e,i)=>`<div class="lb-row${e.name===G.name?' me':''}"><div class="lb-rank">${i<3?ranks[i]:i+1}</div><div class="lb-info"><div class="lb-name">${e.name}${e.name===G.name?' (أنت 🤣)':''}</div><div class="lb-meta">${e.title} · ${new Date(e.ts).toLocaleDateString('ar-SA')}</div></div><div class="lb-score-box"><div class="lb-snum">${e.correct}/5</div><div class="lb-slbl">صحيحة</div></div></div>`).join('');
     document.getElementById('lbContent').innerHTML = html;
     showScreen('screenLB');
 }
@@ -510,11 +538,13 @@ function updateChaos(){
 }
 
 function updateDots(){
-    for(let i=0;i<5;i++){
+    for(let i=0;i<7;i++){
         let d = document.getElementById('dot'+i);
-        d.className = 'dot';
-        if(i<G.idx) d.classList.add('done');
-        else if(i===G.idx) d.classList.add('active');
+        if(d){
+            d.className = 'dot';
+            if(i<G.idx) d.classList.add('done');
+            else if(i===G.idx) d.classList.add('active');
+        }
     }
 }
 
@@ -531,10 +561,10 @@ function tryStart(){
 }
 
 window.onload = () => {
-    for(let i=0;i<30;i++){
+    for(let i=0;i<35;i++){
         let p = document.createElement('div');
         p.className = 'particle';
-        p.style.cssText = `left:${Math.random()*100}%;animation-duration:${5+Math.random()*10}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*4}px;height:${1+Math.random()*4}px;--dx:${(Math.random()-.5)*300}px;opacity:${.3+Math.random()*.4};background:${['var(--blue)','var(--green)','var(--purple)'][Math.floor(Math.random()*3)]}`;
+        p.style.cssText = `left:${Math.random()*100}%;animation-duration:${4+Math.random()*12}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*4}px;height:${1+Math.random()*4}px;--dx:${(Math.random()-.5)*300}px;opacity:${.2+Math.random()*.5};background:${['var(--blue)','var(--green)','var(--purple)','var(--yellow)'][Math.floor(Math.random()*4)]}`;
         document.getElementById('particles').appendChild(p);
     }
     checkName();
