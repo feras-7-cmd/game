@@ -168,8 +168,23 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
     .sc-txt{font-size:15px;line-height:1.6;padding:15px;}
     .opt{font-size:14px;padding:16px 18px;}
     .name-card{padding:30px 20px;}
-}
+<div class="footer-credit" id="footerCredit">
+        قسم إدارة المرافق - برعاية أ. فراس يماني
+    </div>
+</div> ```}
 </style>
+    ```css
+.footer-credit {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--blue); /* لجعل النص بلون مميز */
+    font-size: 15px;
+    font-weight: 800;
+    background: rgba(41, 121, 255, 0.05); /* خلفية خفيفة */
+    border-radius: 12px;
+}
 </head>
 <body>
 <div class="particles" id="particles"></div>
@@ -445,15 +460,20 @@ function addLB(name, correct, title, lang) {
 function setLang(lang) {
     G.lang = lang;
     currentLangData = DATA[lang];
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
     
-    // Update all text
-    updateAllText();
+    // تحديث شكل الأزرار (نشط/غير نشط)
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.getAttribute('onclick').includes(`'${lang}'`)) btn.classList.add('active');
+    });
+
+    updateAllText(); // تحديث القوالب الثابتة
     
-    // Restart if in game
-    if (document.getElementById('screenGame').classList.contains('active')) {
-        startGame();
+    // تحديث السيناريو الحالي إذا كانت اللعبة شغالة
+    if (G.scenarios.length > 0) {
+        // تحديث مصفوفة السيناريوهات الحالية باللغة الجديدة
+        G.scenarios = G.scenarios.map(oldSc => currentLangData.scenarios.find(s => s.id === oldSc.id));
+        renderScenario(); 
     }
 }
 
