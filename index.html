@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>يوم في حياة مهندس صيانة - King Salman Specialist Hospital | Maintenance Training Game</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<title>يوم في حياة مهندس صيانة - مستشفى الملك سلمان التخصصي | لعبة توعوية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
     --green:#00c853;--red:#ff1744;--yellow:#ffd600;--blue:#2979ff;--purple:#7b1fa2;
@@ -22,9 +22,6 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
 @keyframes floatup{0%{transform:translateY(100vh) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) translateX(var(--dx));opacity:0}}
 
 .wrapper{position:relative;z-index:1;max-width:800px;margin:0 auto;padding:20px 16px 80px;}
-.lang-toggle{display:flex;justify-content:center;gap:10px;margin-bottom:15px;}
-.lang-btn{background:var(--card2);border:1px solid var(--border);border-radius:25px;padding:8px 16px;font-size:14px;cursor:pointer;transition:all .3s;font-weight:600;}
-.lang-btn.active{background:var(--blue);border-color:var(--blue);color:white;transform:scale(1.05);}
 
 .header{text-align:center;padding:30px 20px 20px;margin-bottom:20px;border-bottom:1px solid var(--border);position:relative;}
 .header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--green),var(--purple));}
@@ -59,7 +56,7 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
 .sc:hover{transform:translateY(-2px);}
 .sc .l{font-size:12px;color:var(--muted);font-weight:700;margin-bottom:4px;}
 .sc .v{font-size:26px;font-weight:900;font-family:'Tajawal',sans-serif;}
-.sc-b .v{color:var(--blue);}.sc-g .v{color:var(--green);}.sc-y .v{color:var(--yellow);}.sc-p .v{color:var(--purple);}
+.sc-b .v{color:var(--blue);}.sc-g .v{color:var(--green);}.sc-y .v{color:var(--yellow);}
 
 /* CHAOS METER */
 .chaos-sec{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 22px;margin-bottom:18px;box-shadow:var(--shadow);}
@@ -97,7 +94,7 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
 .opt.ng{border-color:var(--red)!important;background:linear-gradient(135deg,rgba(255,23,68,.15),rgba(255,23,68,.08))!important;animation:ngshk .6s;}
 @keyframes okpop{0%{transform:scale(1) translateX(0)}50%{transform:scale(1.05) translateX(-2px)}100%{transform:scale(1) translateX(-2px)}}
 @keyframes ngshk{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
-.opt-num{min-width:40px;height:40px;border-radius:12px;background:rgba(41,121,255,.15);color:var(--blue);border:2px solid rgba(41,121,255,.3);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;flex-shrink:0;box-shadow:0 4px 12px rgba(41,121,255,.2);}
+.opt-num{min-width:40px;height:40px;border-radius:12px;background:rgba(41,121,255,.15);color:var(--blue);border:2px solid rgba(41,121,255,.3);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;flex-shrink:0;}
 .opt.ok .opt-num{background:linear-gradient(135deg,rgba(0,200,83,.3),rgba(0,200,83,.2));color:var(--green);border-color:var(--green);animation:pulse 1s infinite;}
 .opt.ng .opt-num{background:linear-gradient(135deg,rgba(255,23,68,.3),rgba(255,23,68,.2));color:var(--red);border-color:var(--red);}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,200,83,.7)}50%{box-shadow:0 0 0 10px rgba(0,200,83,0)}}
@@ -128,7 +125,7 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
 .estat:hover{transform:translateY(-3px);}
 .esv{font-size:32px;font-weight:900;font-family:'Tajawal',sans-serif;}
 .esl{font-size:12px;color:var(--muted);font-weight:700;}
-.esg{color:var(--green);}.esy{color:var(--yellow);}.esr{color:var(--red);}.esp{color:var(--purple);}
+.esg{color:var(--green);}.esy{color:var(--yellow);}.esr{color:var(--red);}
 .end-tip-box{background:linear-gradient(135deg,rgba(41,121,255,.12),rgba(123,31,162,.1));border:1px solid rgba(41,121,255,.3);border-radius:16px;padding:20px 24px;font-size:15px;font-weight:700;color:var(--text);margin-bottom:25px;line-height:1.8;border-right:4px solid var(--blue);}
 .end-btns{display:flex;flex-direction:column;gap:12px;}
 .replay-btn{background:linear-gradient(135deg,var(--green),#00a084);border:none;border-radius:16px;color:white;font-family:'Cairo',sans-serif;font-size:17px;font-weight:800;padding:18px;cursor:pointer;transition:all .3s;box-shadow:var(--shadow);}
@@ -162,7 +159,6 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
 .sponsor-footer span.main-sponsor{color:#ffd966;font-size:18px;letter-spacing:1px;}
 .sponsor-footer small{display:block;margin-top:8px;font-size:12px;opacity:0.7;}
 
-/* RESPONSIVE */
 @media(max-width:480px){
     .wrapper{padding:15px 12px 70px;}
     .score-panel{gap:10px;}
@@ -176,50 +172,43 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
 <body>
 <div class="particles" id="particles"></div>
 <div class="wrapper">
-    
-    <!-- LANGUAGE TOGGLE -->
-    <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('ar')">العربية</button>
-        <button class="lang-btn" onclick="setLang('en')">English</button>
-    </div>
-
     <div class="header">
         <div class="hosp-badge">
             <span>🏥 مستشفى الملك سلمان التخصصي</span> · الطائف
         </div>
-        <div class="main-title" id="mainTitle">يوم في حياة مهندس الصيانة</div>
-        <div class="sub-title" id="subTitle">لعبة توعوية تفاعلية لموظفي المستشفى</div>
+        <div class="main-title">يوم في حياة مهندس الصيانة</div>
+        <div class="sub-title">لعبة توعوية تفاعلية لموظفي المستشفى</div>
     </div>
 
     <!-- NAME SCREEN -->
     <div class="screen active" id="screenName">
         <div class="name-card">
-            <div class="name-emo" id="nameEmo">👷‍♂️</div>
-            <div class="name-ttl" id="nameTtl">أهلاً وسهلاً بزملاء المهنة!</div>
-            <div class="name-sub" id="nameSub">يا هلا فيكم يا نجوم مستشفى الملك سلمان! <br>ادخل اسمك عشان نسجّلك في قائمة الأبطال 🏆</div>
+            <div class="name-emo">👷‍♂️</div>
+            <div class="name-ttl">أهلاً وسهلاً بزملاء المهنة!</div>
+            <div class="name-sub">يا هلا فيكم يا نجوم مستشفى الملك سلمان! <br>ادخل اسمك عشان نسجّلك في قائمة الأبطال 🏆</div>
             <input class="name-in" id="nameIn" type="text" placeholder="اكتب اسمك هنا..." maxlength="25" oninput="checkName()" onkeydown="if(event.key==='Enter')tryStart()">
-            <div class="name-hint" id="nameHint">٢٥ حرف كحد أقصى</div>
+            <div class="name-hint">٢٥ حرف كحد أقصى</div>
             <div class="rules-box">
-                <div class="rule"><div class="rule-ico">1️⃣</div><span id="rule1">٥ سيناريوهات كارثية (جديدة كل جولة)</span></div>
-                <div class="rule"><div class="rule-ico">2️⃣</div><span id="rule2">اختار الحل الصح من ٣ خيارات — العقل رأس المال!</span></div>
-                <div class="rule"><div class="rule-ico">3️⃣</div><span id="rule3">كل إجابة خاطئة ترفع مؤشر الفوضى — احترس! 🚨</span></div>
-                <div class="rule"><div class="rule-ico">4️⃣</div><span id="rule4">نتيجتك تتسجل في لوحة شرف الأبطال 🏅</span></div>
+                <div class="rule"><div class="rule-ico">1️⃣</div><span>٥ سيناريوهات كارثية مختلفة في كل مرة تلعب!</span></div>
+                <div class="rule"><div class="rule-ico">2️⃣</div><span>اختار الحل الصح من ٣ خيارات — العقل رأس المال!</span></div>
+                <div class="rule"><div class="rule-ico">3️⃣</div><span>كل إجابة خاطئة ترفع مؤشر الفوضى — احترس! 🚨</span></div>
+                <div class="rule"><div class="rule-ico">4️⃣</div><span>نتيجتك تتسجل في لوحة شرف الأبطال 🏅</span></div>
             </div>
-            <button class="start-btn" id="startBtn" onclick="startGame()" disabled id="startBtnText">ابدأ اللعبة!</button>
+            <button class="start-btn" id="startBtn" onclick="startGame()" disabled>ابدأ اللعبة!</button>
         </div>
     </div>
 
     <!-- GAME SCREEN -->
     <div class="screen" id="screenGame">
         <div class="score-panel">
-            <div class="sc sc-b"><div class="l" id="lblPlayer">اللاعب</div><div class="v" id="pName">-</div></div>
-            <div class="sc sc-g"><div class="l" id="lblCorrect">صح</div><div class="v" id="corrCnt">0</div></div>
-            <div class="sc sc-y"><div class="l" id="lblScenario">السيناريو</div><div class="v" id="scNum">1/5</div></div>
+            <div class="sc sc-b"><div class="l">اللاعب</div><div class="v" id="pName">-</div></div>
+            <div class="sc sc-g"><div class="l">صحيحة</div><div class="v" id="corrCnt">0</div></div>
+            <div class="sc sc-y"><div class="l">السيناريو</div><div class="v" id="scNum">1/5</div></div>
         </div>
 
         <div class="chaos-sec">
             <div class="chaos-hdr">
-                <div class="chaos-lbl" id="chaosLbl">مؤشر الفوضى</div>
+                <div class="chaos-lbl">مؤشر الفوضى</div>
                 <div class="chaos-pct" id="chaosPct">0%</div>
             </div>
             <div class="chaos-bg"><div class="chaos-fill" id="chaosBar" style="width:0%;background:var(--green)"></div></div>
@@ -229,9 +218,9 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
         </div>
 
         <div class="calert" id="chaosAlert">
-            <div style="font-size:50px;margin-bottom:12px;" id="alertEmo">🚨</div>
-            <div style="font-size:20px;font-weight:900;color:var(--red);margin-bottom:8px;" id="alertTitle">تم استدعاء المهندس الطارئ!</div>
-            <div style="font-size:14px;color:var(--muted);font-weight:700;line-height:1.6;" id="alertMsg">وصل مؤشر الفوضى للحد الأقصى<br>تحولت العيادة لفيلم رعب!</div>
+            <div style="font-size:50px;margin-bottom:12px;">🚨</div>
+            <div style="font-size:20px;font-weight:900;color:var(--red);margin-bottom:8px;">تم استدعاء المهندس الطارئ!</div>
+            <div style="font-size:14px;color:var(--muted);font-weight:700;line-height:1.6;">وصل مؤشر الفوضى للحد الأقصى<br>تحولت العيادة لفيلم رعب!</div>
         </div>
 
         <div class="pdots" id="pdots">
@@ -253,25 +242,25 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
         <div class="fb" id="fbCard">
             <div class="fb-emo" id="fbEmo"></div>
             <div class="fb-com" id="fbCom"></div>
-            <div class="fb-tip"><span id="fbTipIcon">💡</span><span id="fbTipTxt"></span></div>
+            <div class="fb-tip"><span>💡</span><span id="fbTipTxt"></span></div>
         </div>
 
-        <button class="nxt" id="nxtBtn" onclick="nextScenario()" id="nxtBtnText">التالي</button>
+        <button class="nxt" id="nxtBtn" onclick="nextScenario()">التالي</button>
 
         <div class="end-card" id="endCard">
             <div class="end-trophy" id="endTrophy">🏆</div>
             <div class="ttl-badge" id="endTitle"></div>
             <div style="color:var(--muted);font-size:15px;font-weight:700;margin-bottom:20px;line-height:1.8;" id="endMsg"></div>
             <div class="end-stats">
-                <div class="estat"><div class="esv esg" id="endC">0</div><div class="esl" id="lblEndC">صحيحة</div></div>
-                <div class="estat"><div class="esv esy" id="endF">0</div><div class="esl" id="lblEndF">ترقيع</div></div>
-                <div class="estat"><div class="esv esr" id="endD">0</div><div class="esl" id="lblEndD">كوارث</div></div>
+                <div class="estat"><div class="esv esg" id="endC">0</div><div class="esl">صحيحة</div></div>
+                <div class="estat"><div class="esv esy" id="endF">0</div><div class="esl">ترقيع</div></div>
+                <div class="estat"><div class="esv esr" id="endD">0</div><div class="esl">كوارث</div></div>
             </div>
             <div class="end-tip-box" id="endTip"></div>
             <div class="end-btns">
-                <button class="replay-btn" onclick="replayGame()" id="replayBtnText">العب مرة ثانية!</button>
-                <button class="lb-open-btn" onclick="showLeaderboard()" id="lbBtnText">لوحة الأبطال 🏅</button>
-                <button class="share-btn" onclick="shareResult()" id="shareBtnText">شارك النتيجة!</button>
+                <button class="replay-btn" onclick="replayGame()">العب مرة ثانية!</button>
+                <button class="lb-open-btn" onclick="showLeaderboard()">لوحة الأبطال 🏅</button>
+                <button class="share-btn" onclick="shareResult()">شارك النتيجة!</button>
             </div>
         </div>
     </div>
@@ -282,16 +271,15 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
             <div class="lb-hdr">
                 <div class="lb-ico">🏆</div>
                 <div>
-                    <div class="lb-title" id="lbTitle">لوحة الأبطال... والكوارث!</div>
-                    <div class="lb-sub" id="lbSub">قسم الصيانة × قسم الكوارث الطبيعية</div>
+                    <div class="lb-title">لوحة الأبطال... والكوارث!</div>
+                    <div class="lb-sub">قسم الصيانة × قسم الكوارث الطبيعية</div>
                 </div>
             </div>
             <div id="lbContent"></div>
-            <button class="back-btn" onclick="backFromLB()" id="backBtnText">ارجع للعبة</button>
+            <button class="back-btn" onclick="backFromLB()">ارجع للعبة</button>
         </div>
     </div>
     
-    <!-- ثابت: قسم ادارة المرافق برعاية أ. فراس يماني -->
     <div class="sponsor-footer">
         <div class="main-sponsor">⚙️ قسم إدارة المرافق ⚙️</div>
         <div>برعاية الأستاذ / فراس يماني</div>
@@ -300,90 +288,74 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);min-h
 </div>
 
 <script>
-// بيانات كاملة مع 5 سيناريوهات + ترجمة آلية لكل شيء
-const DATA = {
-    ar: {
-        title: "يوم في حياة مهندس الصيانة",
-        subtitle: "لعبة توعوية تفاعلية لموظفي المستشفى",
-        nameTtl: "أهلاً وسهلاً بزملاء المهنة!",
-        nameSub: "يا هلا فيكم يا نجوم مستشفى الملك سلمان! <br>ادخل اسمك عشان نسجّلك في قائمة الأبطال 🏆",
-        nameHint: "٢٥ حرف كحد أقصى",
-        rules: ["٥ سيناريوهات كارثية مختلفة في كل مرة تلعب!", "اختار الحل الصح من ٣ خيارات — العقل رأس المال!", "كل إجابة خاطئة ترفع مؤشر الفوضى — احترس! 🚨", "نتيجتك تتسجل في لوحة شرف الأبطال 🏅"],
-        lblPlayer: "اللاعب", lblCorrect: "صح", lblScenario: "السيناريو", chaosLbl: "مؤشر الفوضى", alertTitle: "تم استدعاء المهندس الطارئ!", alertMsg: "وصل مؤشر الفوضى للحد الأقصى<br>تحولت العيادة لفيلم رعب!", alertEmo: "🚨",
-        nxtBtn: "التالي", startBtn: "ابدأ اللعبة!", replayBtn: "العب مرة ثانية!", lbBtn: "لوحة الأبطال 🏅", shareBtn: "شارك النتيجة!", backBtn: "ارجع للعبة", lbTitle: "لوحة الأبطال... والكوارث!", lbSub: "قسم الصيانة × قسم الكوارث الطبيعية", lblEndC: "صحيحة", lblEndF: "ترقيع", lblEndD: "كوارث",
-        scenarios: [
-            {id:1, emoji:"💧", title:"سيناريو تسرب مكيف", text:"🚨 <strong>طوارئ مكيف المكتب:</strong> موية تنزل على ملفات المريض! وش الحل؟", options:[{type:"smart",text:"أحط سطل تحت التسرب، أنقل الملفات، وأبلغ الصيانة فوراً"},{type:"funny",text:"أجيب لصقة جروح عشان أسد فتحة المكيف 😂"},{type:"bad",text:"أفك المكيف بيدي وأنا واقف تحت الموية ⚡💦"}], feedbacks:{smart:{emoji:"✅",comment:"تصحى! 🎉 حماية البيانات + إبلاغ سريع",tip:"الحماية + الإبلاغ الدقيق يمنع الخسارة"},funny:{emoji:"😂",comment:"لصقة على مكيف؟؟",tip:"التصحيح الرسمي هو الحل"},bad:{emoji:"🚫",comment:"كهرباء + موية = خطر",tip:"لا تقترب أبداً من الأجهزة المبللة"}}},
-            {id:2, emoji:"🔌", title:"سيناريو شرار كهربائي", text:"🔥 <strong>شرار كهربائي خطير في الفيشة.</strong> الريحة بلاستيك محترق!", options:[{type:"smart",text:"أبعد الجميع وأبلغ الصيانة فوراً"},{type:"funny",text:"أحضر فوطة مبللة لأطفئ الشرار 💦"},{type:"bad",text:"أوصل كمبيوتر ثاني في نفس الفيشة"}], feedbacks:{smart:{emoji:"✅",comment:"قمة الوعي",tip:"لا تستخدم الماء مطلقاً"},funny:{emoji:"😂",comment:"الماء يوصل الكهرباء",tip:"الماء خطر"},bad:{emoji:"🚫",comment:"كارثة تضاعف",tip:"لا تعيد استخدام فيش محترق"}}},
-            {id:3, emoji:"🚪", title:"باب غرفة الفحص", text:"🏥 <strong>صرير مزعج في باب فحص المريض والدكتور يغضب.</strong>", options:[{type:"smart",text:"أسجل بلاغ رسمي بعد الفحص وأطمّن الدكتور"},{type:"funny",text:"أجيب زيت زيتون وأدهن المفصلة"},{type:"bad",text:"أشيل مفصلة الباب بالمفك"}], feedbacks:{smart:{emoji:"✅",comment:"احترافية عالية",tip:"الإبلاغ الرسمي هو الأساس"},funny:{emoji:"😂",comment:"زيت طعام بالعيادة",tip:"الحلول المؤقتة غير آمنة"},bad:{emoji:"🚫",comment:"باب بدون مفصلة!",tip:"لا تفكيك بدون تصريح"}}},
-            {id:4, emoji:"🩸", title:"انسكاب مواد خطرة", text:"🧪 <strong>تسرب مطهر كيميائي قوي في ممر المرضى!</strong> رائحة قوية و زلة خطيرة", options:[{type:"smart",text:"أغلق المنطقة وأبلغ فريق السلامة والصيانة فوراً"},{type:"funny",text:"أجيب ممسحة عادية و أمسح وأفتح الشبابيك"},{type:"bad",text:"أحاول أحيد المادة بإيدي بدون قفازات"}], feedbacks:{smart:{emoji:"✅",comment:"احترافي!",tip:"المواد الكيميائية تحتاج متخصصين"},funny:{emoji:"😂",comment:"الممسحة تزيد المشكلة",tip:"لا تتعامل مع المواد الخطرة بنفسك"},bad:{emoji:"🚫",comment:"خطر على صحتك!",tip:"القفازات واجب وأولوية الإخلاء"}}},
-            {id:5, emoji:"💨", title:"رائحة غاز غريبة", text:"🔥 <strong>ريحة غاز قرب المطبخ الرئيسي والمراجعين يتنحنحون.</strong>", options:[{type:"smart",text:"أجلّي الجميع فوراً وأقطع مصدر الغاز إن أمكن وأبلغ الطوارئ"},{type:"funny",text:"أحرك مروحة عالية عشان تروح الريحة"},{type:"bad",text:"أشغل ولاعة عشان أتأكد إذا في غاز"}], feedbacks:{smart:{emoji:"✅",comment:"بطل إنقاذ!",tip:"غاز = إخلاء + اتصال بالجهات المختصة"},funny:{emoji:"😂",comment:"المروحة تسبب شرارة",tip:"لا تستخدم أجهزة كهربائية في وجود غاز"},bad:{emoji:"💥",comment:"انفجار محقق!",tip:"الولاعة = نهاية سعيدة للفيلم ولكن مو هنا"}}}
-        ]
-    },
-    en: {
-        title: "A Day in the Life of a Maintenance Tech", subtitle: "Interactive Training Game for Hospital Staff",
-        nameTtl: "Welcome Maintenance Heroes!", nameSub: "Enter your name to join the hall of heroes 🏆", nameHint: "Max 25 chars",
-        rules: ["5 disaster scenarios each playthrough!", "Choose the correct solution — use your brain!", "Wrong answer raises chaos meter!", "Score goes to Hall of Fame 🏅"],
-        lblPlayer: "Player", lblCorrect: "Correct", lblScenario: "Scenario", chaosLbl: "Chaos Meter", alertTitle: "Emergency Tech Called!", alertMsg: "Chaos max! Clinic turned horror!", alertEmo: "🚨",
-        nxtBtn: "Next", startBtn: "Start Game!", replayBtn: "Play Again!", lbBtn: "Leaderboard 🏅", shareBtn: "Share Result!", backBtn: "Back to Game", lbTitle: "Hall of Heroes... & Disasters!", lbSub: "Maintenance Dept × Disaster Unit", lblEndC: "Correct", lblEndF: "Patches", lblEndD: "Disasters",
-        scenarios: [
-            {id:1, emoji:"💧", title:"AC Water Leak", text:"🚨 <strong>Office AC emergency:</strong> Water on patient files! What to do?", options:[{type:"smart",text:"Place bucket, move files, call maintenance"},{type:"funny",text:"Use medical tape on AC vent 😂"},{type:"bad",text:"Disassemble AC with wet hands"}], feedbacks:{smart:{emoji:"✅",comment:"Perfect!",tip:"Protect data + report"},funny:{emoji:"😂",comment:"Not a bandage situation",tip:"Official repair"},bad:{emoji:"🚫",comment:"Shock hazard",tip:"Never touch wet devices"}}},
-            {id:2, emoji:"🔌", title:"Electrical Spark", text:"🔥 <strong>Dangerous plug spark & smoke.</strong>", options:[{type:"smart",text:"Clear area, report maintenance"},{type:"funny",text:"Use wet towel to extinguish"},{type:"bad",text:"Plug second computer into same socket"}], feedbacks:{smart:{emoji:"✅",comment:"Well done",tip:"No water"},funny:{emoji:"😂",comment:"Water dangerous",tip:"Avoid moisture"},bad:{emoji:"🚫",comment:"Disaster",tip:"Don't reuse damaged plug"}}},
-            {id:3, emoji:"🚪", title:"Squeaky Door", text:"🏥 <strong>Loud noise during patient exam, doctor annoyed.</strong>", options:[{type:"smart",text:"Log ticket after exam"},{type:"funny",text:"Use olive oil"},{type:"bad",text:"Remove hinge"}], feedbacks:{smart:{emoji:"✅",comment:"Pro",tip:"Official reporting"},funny:{emoji:"😂",comment:"Not kitchen",tip:"Temporary fix bad"},bad:{emoji:"🚫",comment:"Door broken",tip:"No unauthorized removal"}}},
-            {id:4, emoji:"🩸", title:"Chemical Spill", text:"🧪 <strong>Strong disinfectant spill in patient corridor.</strong>", options:[{type:"smart",text:"Secure area, notify safety team"},{type:"funny",text:"Mop and open windows"},{type:"bad",text:"Touch liquid with bare hands"}], feedbacks:{smart:{emoji:"✅",comment:"Hero!",tip:"Chemical spill needs experts"},funny:{emoji:"😂",comment:"Mop spreads hazard",tip:"Don't DIY"},bad:{emoji:"🚫",comment:"Health risk",tip:"Gloves and evacuation first"}}},
-            {id:5, emoji:"💨", title:"Gas Smell", text:"🔥 <strong>Gas odor near main kitchen, patients coughing.</strong>", options:[{type:"smart",text:"Evacuate, shut source, call emergency"},{type:"funny",text:"Turn on fan to blow smell away"},{type:"bad",text:"Use lighter to test"}], feedbacks:{smart:{emoji:"✅",comment:"Life saver!",tip:"Gas = Evacuation + emergency call"},funny:{emoji:"😂",comment:"Fan causes spark",tip:"No electrical devices"},bad:{emoji:"💥",comment:"BOOM!",tip:"Lighter = explosion"}}}
-        ]
-    }
-};
+// بيانات اللعبة - 5 سيناريوهات عربية
+const SCENARIOS = [
+    {id:1, emoji:"💧", text:"🚨 <strong>طوارئ مكيف المكتب:</strong> جالس في مكتبك وراك ملفات وضغط شغل، وفجأة المكيف قرر يتحول لـ'شلال' ويصب موية فوق ملفات المريض! الموية شاطحة والأوراق تبتل بسرعة.. الملفات تحتوي بيانات طبية حساسة! وش بتسوي يا بطل؟",
+     options:[
+        {type:"smart", text:"أحط سطل أو كيس نايلون فوراً تحت الموية، أنقل الملفات لمكان جاف، وأتصل بقسم الصيانة على طول وأوصف المشكلة بدقة (موقع + نوع التسرب)"},
+        {type:"funny", text:"أجيب لصقة جروح من العيادة وأطبّقها فوق فتحة المكيف، وأوزع مناديل ورقية فوق الملفات عشان تشفط الموية 😂"},
+        {type:"bad", text:"أطفي المكيف وأفك الغطاء وأبدأ أفتش في الأسلاك بيدي وهي مبلولة، أكيد قادر أصلحه! ⚡💦"}
+     ],
+     feedbacks:{smart:{emoji:"✅", comment:"كفو والله! 🎉 هذا مهندس صيانة متخفي في بدلة موظف! حميت الملفات الطبية الحساسة وبلّغت الصيانة فوراً!", tip:"التصرف السريع بحماية الموجودات + الإبلاغ الدقيق يمنع خسارة بيانات المرضى وأضرار تتضاعف."},
+                funny:{emoji:"😂", comment:"لصق جروح عاد؟! يا أخي هذا مكيف مو جرح في إصبعك! الصيانة تقولك: تكفى لا تجتهد وبلغنا بس! 😅", tip:"الحلول المؤقتة تخفي المشكلة وتجعلها أخطر. البلاغ الفوري + الوصف الدقيق هو الصواب."},
+                bad:{emoji:"🚫", comment:"يا ساتر!! ⚠️ تبي تحرق المستشفى علينا؟! موية + كهرباء = صاعقة مضمونة + حريق! سلامتك أهم من المكيف!", tip:"🚨 لا تلمس الأجهزة الكهربائية المبللة أبداً! افصل الكهرباء من المفتاح الرئيسي وأبلغ فوراً."}}},
+    {id:2, emoji:"🔌", text:"🔥 <strong>شرار كهربائي خطير:</strong> في عز الدوام، فيش الكمبيوتر في مكتبك فجأة طلع شرار أصفر برتقالي مع ريحة بلاستيك محترق! الكمبيوتر طفى لحاله.. القسم كله خايف وشايف الدخان! المرضى في الانتظار وقريب من المكتب. وش الخطوة الأولى؟",
+     options:[
+        {type:"smart", text:"أطلب من الجميع الابتعاد فوراً عن المنطقة، أبلغ قسم الصيانة الكهربائية فوراً مع وصف دقيق، وأبلغ مسؤول الطابق — لا أقترب من الفيش أو أحاول أسحبه"},
+        {type:"funny", text:"أجيب فوطة مبللة من الحمام وأحاول أطفي الشرار، وبعدين أشيل الفيش بإيدي وعليها الفوطة كـ'عازل' 🛁💦"},
+        {type:"bad", text:"أجيب الكمبيوتر الاحتياطي وأوصّل الفيش القديم المحترق فيه عشان أشوف إذا الفيش هو المشكلة! 🔌🔥"}
+     ],
+     feedbacks:{smart:{emoji:"✅", comment:"أبطال! 👏 واللهي هذا التصرف الصح! أخليت الجميع بأمان وأبلغت المختصين بدقة. كفو يا مسؤول!", tip:"🔌 شرار كهربائي: ابتعد فوراً، لا تستخدم الماء، أبلغ الصيانة الكهربائية + مسؤول الطابق."},
+                funny:{emoji:"😂", comment:"فوطة مبللة على كهرباء؟! 💦⚡ الماء ينقل الكهرباء يا نجم مو يحميك منها! روح حياتك أثمن من الفيش!", tip:"🚫 لا تستخدم الماء مع الحرائق الكهربائية! الماء موصّل وقد يسبب صعقة قاتلة."},
+                bad:{emoji:"🚫", comment:"توصّل الفيش المحترق في جهاز ثاني؟! 😱 تبي تحرق جهازين بدل واحد؟! هذا مكتب مو مختبر!", tip:"🔥 لا تعيد توصيل مكونات محترقة. الحريق الكهربائي يحتاج متخصص معتمد."}}},
+    {id:3, emoji:"🚪", text:"🏥 <strong>باب غرفة الفحص يصدر صوتاً:</strong> الدكتور في منتصف فحص مريض مهم.. وفجأة باب غرفة الفحص يطلع صوت 'صَر صَر' أزيز مزعج ما يوقف! المريض يعبّس والدكتور ينظر لك أنت بالذات! الفحص طبي حساس والمريض متوتر. وش تسوي؟",
+     options:[
+        {type:"smart", text:"أسجّل بلاغ في نظام الصيانة بعد انتهاء الفحص، وأبلغ مشرفي فوراً عشان يرسلون مهندس صيانة متخصص، وأطمّن الدكتور"},
+        {type:"funny", text:"أجيب زيت الزيتون من كافيتيريا الموظفين وأدهن المفصلة بإيدي وسط الفحص عشان يسكت الصوت 🥄🛢️"},
+        {type:"bad", text:"أفك مفصلة الباب بالمفك وأشيلها كلها وأترك الباب معلّق عشان يهدأ الصوت نهائياً! 🔧🚪"}
+     ],
+     feedbacks:{smart:{emoji:"✅", comment:"ماشاء الله عليك! 👨‍⚕️ عرفت إن سلامة الفحص الطبي أهم، وبلّغت الصيانة بالطريقة الرسمية الصحيحة!", tip:"📋 الإبلاغ عبر النظام الرسمي يضمن توثيق المشكلة ومتابعتها، وعدم نسيانها."},
+                funny:{emoji:"😂", comment:"زيت زيتون؟! 😅 يا حبيبي هذا باب غرفة فحص مو سلطة! الدكتور رح يطردك هو والزيتون معك!", tip:"🛢️ الحلول الارتجالية بمواد غير مخصصة قد تتلف المفصلة أكثر. الإبلاغ الصحيح هو الحل الدائم."},
+                bad:{emoji:"🚫", comment:"شلّعت الباب؟! 😱 الحين عندنا غرفة فحص بدون باب والمريض يتفرج عليه الممر كله! خصوصية المريض؟!", tip:"🚪 لا تفك أجزاء أبواب أو معدات المستشفى أبداً دون تفويض رسمي."}}},
+    {id:4, emoji:"🩸", text:"🧪 <strong>تسرب مواد كيميائية خطيرة:</strong> انسكبت كمية من مطهر قوي في ممر المرضى، الرائحة خانقة والأرض زلقة! المرضى يمرون والأطفال موجودين. وش أول تصرف؟",
+     options:[
+        {type:"smart", text:"أغلق المنطقة فوراً، أمنع أي شخص من المرور، أبلغ فريق السلامة والصيانة الطارئة مع وصف المادة الكيميائية"},
+        {type:"funny", text:"أجيب ممسحة عادية وبدأ أمسح المادة بسرعة عشان ما يشوفها أحد 🧹"},
+        {type:"bad", text:"أحاول أجمع المادة بيدي بدون قفازات وأحطها في سلة المهملات العادية"}
+     ],
+     feedbacks:{smart:{emoji:"✅", comment:"وعيك عالي! 🛡️ إغلاق المنطقة وحماية المرضى أولاً ثم الإبلاغ المتخصص هو البروتوكول الصحيح 100%", tip:"⚠️ المواد الكيميائية تحتاج فريق متخصص للتنظيف والتعامل الآمن."},
+                funny:{emoji:"😂", comment:"ممسحة عادية؟! 😅 المواد الكيميائية القوية ممكن تتفاعل مع الممسحة وتصير أبخرة سامة!", tip:"لا تستخدم أدوات غير مخصصة مع المواد الكيميائية أبداً."},
+                bad:{emoji:"🚫", comment:"يا عيني على شجاعتك ولكن غلط! 😱 المواد الكيميائية تحرق الجلد وقد تسبب حروق وتسمم!", tip:"حماية النفس أولاً: ابتعد وأبلغ المتخصصين، لا تلمس أي مادة كيميائية بدون معدات وقاية."}}},
+    {id:5, emoji:"💨", text:"🔥 <strong>رائحة غاز قوية:</strong> فجأة انتشرت ريحة غاز قوية قريب من المطبخ الرئيسي، المراجعين بدأوا يتنحنحون والإدارة في حالة هلع. فيه احتمال تسرب غاز خطير! وش تسوي؟",
+     options:[
+        {type:"smart", text:"أطلب إخلاء المنطقة فوراً، أفتح الشبابيك للتهوية، أمنع أي شخص من استخدام الكهرباء أو الولاعات، وأبلغ الدفاع المدني والصيانة"},
+        {type:"funny", text:"أجيب معطر جو وأعطر المكان عشان تخف الريحة 🌸"},
+        {type:"bad", text:"أشغل ولاعة صغيرة عشان أتأكد إذا كان فيه غاز ولا لا! 🔥"}
+     ],
+     feedbacks:{smart:{emoji:"✅", comment:"بطل! 👏 هذا هو التصرف السليم 100%! الإخلاء + التهوية + منع مصادر الاشتعال = حماية الأرواح", tip:"⛔ غاز طبيعي: لا تشغل أي جهاز كهربائي، لا تستخدم الولاعات، أخلِ المكان فوراً وأبلغ الطوارئ."},
+                funny:{emoji:"😂", comment:"معطر جو مع رائحة غاز؟! 😅 هذا يضاعف الكارثة يا حبيبي!", tip:"لا تحاول إخفاء رائحة الغاز أبداً — هذا خطير جداً ويؤخر الإخلاء."},
+                bad:{emoji:"💥", comment:"يا ساتر لاااا! 🔥💣 الولاعة مع وجود غاز تسوي انفجار يهدم المستشفى! اترك التمثيل للأفلام!", tip:"🚨 أي شرارة قد تسبب انفجاراً هائلاً. أخلِ المكان فوراً وأبلغ المختصين."}}}
+];
 
-let G = {name: '', idx: 0, sessionUsed: [], scenarios: [], chaos: 0, correct: 0, funny: 0, bad: 0, answered: false, lang: 'ar'};
-let currentLangData = DATA.ar;
+let G = {name: '', idx: 0, sessionUsed: [], scenarios: [], chaos: 0, correct: 0, funny: 0, bad: 0, answered: false};
 
-function loadLB(){try{return JSON.parse(localStorage.getItem('ksmc_lb_5sc')) || [];}catch{return[];}}
-function saveLB(d){localStorage.setItem('ksmc_lb_5sc', JSON.stringify(d));}
-function addLB(name, correct, title, lang){let lb=loadLB(); lb.push({name,correct,title,lang,ts:Date.now()}); lb.sort((a,b)=>b.correct-a.correct||b.ts-a.ts); saveLB(lb.slice(0,50));}
+function loadLB(){try{return JSON.parse(localStorage.getItem('ksmc_lb_ar')) || [];}catch{return[];}}
+function saveLB(d){localStorage.setItem('ksmc_lb_ar', JSON.stringify(d));}
+function addLB(name, correct, title){let lb=loadLB(); lb.push({name,correct,title,ts:Date.now()}); lb.sort((a,b)=>b.correct-a.correct||b.ts-a.ts); saveLB(lb.slice(0,50));}
 
-function setLang(lang){
-    G.lang=lang; currentLangData=DATA[lang];
-    document.querySelectorAll('.lang-btn').forEach(btn=>btn.classList.remove('active'));
-    event.target.classList.add('active');
-    updateAllText();
-    if(document.getElementById('screenGame').classList.contains('active')) startGame();
-}
-function updateAllText(){
-    document.getElementById('mainTitle').textContent=currentLangData.title;
-    document.getElementById('subTitle').textContent=currentLangData.subtitle;
-    document.getElementById('nameTtl').textContent=currentLangData.nameTtl;
-    document.getElementById('nameSub').innerHTML=currentLangData.nameSub;
-    document.getElementById('nameHint').textContent=currentLangData.nameHint;
-    document.getElementById('startBtnText').textContent=currentLangData.startBtn;
-    currentLangData.rules.forEach((r,i)=>document.getElementById(`rule${i+1}`).textContent=r);
-    document.getElementById('lblPlayer').textContent=currentLangData.lblPlayer;
-    document.getElementById('lblCorrect').textContent=currentLangData.lblCorrect;
-    document.getElementById('lblScenario').textContent=currentLangData.lblScenario;
-    document.getElementById('chaosLbl').textContent=currentLangData.chaosLbl;
-    document.getElementById('nxtBtnText').textContent=currentLangData.nxtBtn;
-    document.getElementById('replayBtnText').textContent=currentLangData.replayBtn;
-    document.getElementById('lbBtnText').textContent=currentLangData.lbBtn;
-    document.getElementById('shareBtnText').textContent=currentLangData.shareBtn;
-    document.getElementById('backBtnText').textContent=currentLangData.backBtn;
-    document.getElementById('lbTitle').textContent=currentLangData.lbTitle;
-    document.getElementById('lbSub').textContent=currentLangData.lbSub;
-    document.getElementById('lblEndC').textContent=currentLangData.lblEndC;
-    document.getElementById('lblEndF').textContent=currentLangData.lblEndF;
-    document.getElementById('lblEndD').textContent=currentLangData.lblEndD;
-}
 function pickScenarios(){
-    let avail = currentLangData.scenarios.filter(s=>!G.sessionUsed.includes(s.id));
-    if(avail.length<5){ G.sessionUsed=[]; avail=currentLangData.scenarios.slice(); }
+    let avail = SCENARIOS.filter(s=>!G.sessionUsed.includes(s.id));
+    if(avail.length<5){ G.sessionUsed=[]; avail=SCENARIOS.slice(); }
     let picked = avail.sort(()=>Math.random()-.5).slice(0,5);
     picked.forEach(s=>G.sessionUsed.push(s.id));
     return picked;
 }
+
 function startGame(){
-    G.name=document.getElementById('nameIn').value.trim();
+    G.name = document.getElementById('nameIn').value.trim();
     G.idx=0; G.chaos=0; G.correct=0; G.funny=0; G.bad=0; G.answered=false;
-    G.scenarios=pickScenarios();
-    document.getElementById('pName').textContent=G.name;
+    G.scenarios = pickScenarios();
+    document.getElementById('pName').textContent = G.name;
     showScreen('screenGame');
     document.getElementById('endCard').className='end-card';
     document.getElementById('chaosAlert').className='calert';
@@ -393,60 +365,85 @@ function startGame(){
     updateChaos();
     renderScenario();
 }
+
 function renderScenario(){
-    let sc=G.scenarios[G.idx];
+    let sc = G.scenarios[G.idx];
     G.answered=false;
-    document.getElementById('scEmo').textContent=sc.emoji;
-    document.getElementById('scTxt').innerHTML=sc.text;
-    document.getElementById('scBadge').textContent=currentLangData.scenarios[0].title;
-    document.getElementById('scNum').textContent=(G.idx+1)+'/5';
-    document.getElementById('corrCnt').textContent=G.correct;
+    document.getElementById('scEmo').textContent = sc.emoji;
+    document.getElementById('scTxt').innerHTML = sc.text;
+    document.getElementById('scBadge').textContent = `السيناريو ${G.idx+1}`;
+    document.getElementById('scNum').textContent = (G.idx+1)+'/5';
+    document.getElementById('corrCnt').textContent = G.correct;
     updateDots();
-    let shuffled=sc.options.slice().sort(()=>Math.random()-.5);
-    let grid=document.getElementById('optsGrid');
-    grid.innerHTML='';
-    let nums=G.lang==='ar'?['١','٢','٣']:['1','2','3'];
+    let shuffled = sc.options.slice().sort(()=>Math.random()-.5);
+    let grid = document.getElementById('optsGrid');
+    grid.innerHTML = '';
+    let nums = ['١', '٢', '٣'];
     shuffled.forEach((opt,i)=>{
-        let btn=document.createElement('button');
-        btn.className='opt';
-        btn.innerHTML=`<div class="opt-num">${nums[i]}</div><div>${opt.text}</div>`;
-        btn.onclick=()=>answerQ(opt.type,i,shuffled);
+        let btn = document.createElement('button');
+        btn.className = 'opt';
+        btn.innerHTML = `<div class="opt-num">${nums[i]}</div><div>${opt.text}</div>`;
+        btn.onclick = () => answerQ(opt.type, i, shuffled);
         grid.appendChild(btn);
     });
-    document.getElementById('fbCard').className='fb';
-    document.getElementById('nxtBtn').className='nxt';
-    document.getElementById('chaosAlert').className='calert';
+    document.getElementById('fbCard').className = 'fb';
+    document.getElementById('nxtBtn').className = 'nxt';
+    document.getElementById('chaosAlert').className = 'calert';
 }
-function answerQ(type,ci,shuffled){
+
+function answerQ(type, ci, shuffled){
     if(G.answered) return;
     G.answered=true;
-    let sc=G.scenarios[G.idx];
-    let btns=document.querySelectorAll('.opt');
+    let sc = G.scenarios[G.idx];
+    let btns = document.querySelectorAll('.opt');
     btns.forEach(b=>b.disabled=true);
-    let smartIdx=shuffled.findIndex(o=>o.type==='smart');
-    if(type==='smart'){ btns[ci].classList.add('ok'); G.correct++; }
-    else{ btns[ci].classList.add('ng'); btns[smartIdx].classList.add('ok'); G.chaos=Math.min(G.chaos+34,100); if(type==='funny') G.funny++; else G.bad++; }
+    let smartIdx = shuffled.findIndex(o=>o.type==='smart');
+    if(type==='smart'){
+        btns[ci].classList.add('ok');
+        G.correct++;
+    } else {
+        btns[ci].classList.add('ng');
+        btns[smartIdx].classList.add('ok');
+        G.chaos = Math.min(G.chaos+34, 100);
+        if(type==='funny') G.funny++; else G.bad++;
+    }
     updateChaos();
-    document.getElementById('corrCnt').textContent=G.correct;
-    if(G.chaos>=100){ document.getElementById('alertTitle').textContent=currentLangData.alertTitle; document.getElementById('alertMsg').innerHTML=currentLangData.alertMsg; document.getElementById('chaosAlert').className='calert show'; }
-    let fb=sc.feedbacks[type];
-    document.getElementById('fbEmo').textContent=fb.emoji;
-    document.getElementById('fbCom').textContent=fb.comment;
-    document.getElementById('fbTipTxt').textContent=fb.tip;
-    document.getElementById('fbCard').className=`fb show ${type==='smart'?'fb-ok':'fb-ng'}`;
-    document.getElementById('nxtBtn').className='nxt show';
+    document.getElementById('corrCnt').textContent = G.correct;
+    if(G.chaos>=100){
+        document.getElementById('chaosAlert').className = 'calert show';
+    }
+    let fb = sc.feedbacks[type];
+    document.getElementById('fbEmo').textContent = fb.emoji;
+    document.getElementById('fbCom').textContent = fb.comment;
+    document.getElementById('fbTipTxt').textContent = fb.tip;
+    document.getElementById('fbCard').className = `fb show ${type==='smart'?'fb-ok':'fb-ng'}`;
+    document.getElementById('nxtBtn').className = 'nxt show';
 }
-function nextScenario(){ G.idx++; if(G.idx>=5) showEnd(); else{ renderScenario(); window.scrollTo({top:0,behavior:'smooth'}); } }
-const TITLES={perfect:{t:"🏆 أسطورة الصيانة",trophy:"👑",msg:"5/5 خارقة! مستوى كارثي صفر!",tip:"عقلك ذهب"},good:{t:"⭐ خبير وعي",trophy:"🏅",msg:"اداء ممتاز",tip:"استمر في التطبيق"},mid:{t:"🔥 واعد جداً",trophy:"🔥",msg:"تحتاج تمرين بسيط",tip:"تواصل مع الصيانة دائماً"},patchy:{t:"🩹 ملك الترقيع",trophy:"🩹",msg:"حلول مؤقتة لكن روحك حلوة",tip:"الحلول الرسمية أضمن"},disaster:{t:"💥 كارثة متجولة",trophy:"💥",msg:"الصيانة خايفة منك!",tip:"لا تلمس أي شيء قبل التبليغ"},mixed:{t:"🎢 فوضوي بنّاء",trophy:"🎢",msg:"خليط غريب!",tip:"ركز على الإجراءات الرسمية"}};
+
+function nextScenario(){
+    G.idx++;
+    if(G.idx>=5) showEnd();
+    else { renderScenario(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+
+const TITLES = {
+    perfect: {t:"🏆 أسطورة الصيانة!", trophy:"👑", msg:"5/5 مثالية! أنت بطل حقيقي للصيانة الوقائية!", tip:"إتقانك للإجراءات الرسمية يحمي المرضى والموظفين!"},
+    good: {t:"⭐ نجم الصيانة!", trophy:"🏅", msg:"ممتاز! 4/5 إجابات صحيحة. قريب من الاحترافية الكاملة!", tip:"استمر في تطبيق الإجراءات الصحيحة وكن قدوة للزملاء."},
+    mid: {t:"🔥 كادر واعد!", trophy:"🔥", msg:"أداء جيد جداً! مع التدريب المستمر ستصبح خبيراً", tip:"الحلول الذكية + الإبلاغ الفوري هما مفتاح النجاح."},
+    patchy: {t:"🩹 مهندس ترقيع!", trophy:"🩹", msg:"إبداعك يحل المشاكل مؤقتاً، لكن الحلول الرسمية هي الأفضل", tip:"الترقيع يخفي العيوب، الإبلاغ الرسمي يحل الجذور."},
+    disaster: {t:"💥 ملك الكوارث!", trophy:"💥", msg:"يا لطيف! الصيانة طلبت إجازة!\nنحتاج تدريب مكثف!", tip:"كل خطأ نتعلم منه. ركز على الإبلاغ الفوري وعدم التسرع."},
+    mixed: {t:"🎢 المغامر!", trophy:"🎢", msg:"خليط من الصح والترقيع والكوارث! رحلة مثيرة!", tip:"التزم بالإجراءات الرسمية وستحقق نتائج مثالية."}
+};
+
 function showEnd(){
     document.getElementById('scCard').style.display='none';
     document.getElementById('optsGrid').style.display='none';
     document.getElementById('fbCard').className='fb';
     document.getElementById('nxtBtn').className='nxt';
     document.getElementById('pdots').style.display='none';
-    let c=G.correct,f=G.funny,b=G.bad,td;
+    let c=G.correct, f=G.funny, b=G.bad, td;
     if(c===5) td=TITLES.perfect;
-    else if(c>=4 && b===0) td=TITLES.good;
+    else if(c===4 && b===0) td=TITLES.good;
     else if(c>=3) td=TITLES.mid;
     else if(f>=3) td=TITLES.patchy;
     else if(b>=3) td=TITLES.disaster;
@@ -457,14 +454,15 @@ function showEnd(){
     document.getElementById('endC').textContent=c;
     document.getElementById('endF').textContent=f;
     document.getElementById('endD').textContent=b;
-    document.getElementById('endTip').textContent='💡 '+td.tip;
+    document.getElementById('endTip').innerHTML='💡 '+td.tip;
     document.getElementById('endCard').className='end-card show';
-    addLB(G.name,c,td.t,G.lang);
+    addLB(G.name, c, td.t);
     window.scrollTo({top:0});
 }
+
 function replayGame(){
     G.idx=0; G.chaos=0; G.correct=0; G.funny=0; G.bad=0; G.answered=false;
-    G.scenarios=pickScenarios();
+    G.scenarios = pickScenarios();
     document.getElementById('scCard').style.display='block';
     document.getElementById('optsGrid').style.display='flex';
     document.getElementById('pdots').style.display='flex';
@@ -474,21 +472,73 @@ function replayGame(){
     renderScenario();
     window.scrollTo({top:0});
 }
-function shareResult(){ let score=`${G.correct}/5`,text=G.lang==='ar'?`🏥 حققت ${score} في لعبة مهندس الصيانة - مستشفى الملك سلمان! ${G.name}`:`🏥 Scored ${score} in Maintenance Game! ${G.name}`; if(navigator.share) navigator.share({title:G.lang==='ar'?'نتيجتي':'My Score',text:text}); else navigator.clipboard.writeText(text).then(()=>alert(G.lang==='ar'?'تم نسخ النتيجة':'Copied!')); }
+
+function shareResult(){
+    let score = `${G.correct}/5`;
+    let text = `🏥 حققت ${score} في لعبة 'يوم في حياة مهندس الصيانة' - مستشفى الملك سلمان! ${G.name}`;
+    if(navigator.share){
+        navigator.share({title:'نتيجتي في لعبة الصيانة', text:text});
+    } else {
+        navigator.clipboard.writeText(text).then(()=>alert('تم نسخ النتيجة! شاركها مع زملائك 📋'));
+    }
+}
+
 function showLeaderboard(){
-    let lb=loadLB().filter(r=>r.lang===G.lang);
-    let ranks=['🥇','🥈','🥉'];
-    let html=lb.length===0?`<div class="lb-empty"><div class="lb-empty-emo">🏆</div><div>${G.lang==='ar'?'ما فيه أبطال بعد.. كن أول واحد!':'No heroes yet!'}</div></div>`:lb.map((e,i)=>`<div class="lb-row${e.name===G.name?' me':''}"><div class="lb-rank">${i<3?ranks[i]:i+1}</div><div class="lb-info"><div class="lb-name">${e.name}${e.name===G.name?(G.lang==='ar'?' (أنت)':' (You)'):''}</div><div class="lb-meta">${e.title} · ${new Date(e.ts).toLocaleDateString(G.lang==='ar'?'ar-SA':'en-US')}</div></div><div class="lb-score-box"><div class="lb-snum">${e.correct}/5</div><div class="lb-slbl">${G.lang==='ar'?'صح':'Correct'}</div></div></div>`).join('');
-    document.getElementById('lbContent').innerHTML=html;
+    let lb = loadLB();
+    let ranks = ['🥇', '🥈', '🥉'];
+    let html = lb.length===0 ? `<div class="lb-empty"><div class="lb-empty-emo">🏆</div><div>ما فيه أبطال بعد.. كن أول واحد!</div></div>`
+        : lb.map((e,i)=>`<div class="lb-row${e.name===G.name?' me':''}"><div class="lb-rank">${i<3?ranks[i]:i+1}</div><div class="lb-info"><div class="lb-name">${e.name}${e.name===G.name?' (أنت)':''}</div><div class="lb-meta">${e.title} · ${new Date(e.ts).toLocaleDateString('ar-SA')}</div></div><div class="lb-score-box"><div class="lb-snum">${e.correct}/5</div><div class="lb-slbl">صحيحة</div></div></div>`).join('');
+    document.getElementById('lbContent').innerHTML = html;
     showScreen('screenLB');
 }
+
 function backFromLB(){ showScreen('screenGame'); }
-function updateChaos(){ let p=Math.min(G.chaos,100),col=p<34?'var(--green)':p<67?'var(--yellow)':p<90?'#ff6d00':'var(--red)'; document.getElementById('chaosBar').style.width=p+'%'; document.getElementById('chaosBar').style.background=col; document.getElementById('chaosPct').style.color=col; document.getElementById('chaosPct').textContent=Math.round(p)+'%'; let ai=Math.floor(p/20); for(let i=0;i<5;i++){ let e=document.getElementById('ce'+i); if(p>0&&i<=ai) e.classList.add('on'); else e.classList.remove('on'); } }
-function updateDots(){ for(let i=0;i<5;i++){ let d=document.getElementById('dot'+i); d.className='dot'; if(i<G.idx) d.classList.add('done'); else if(i===G.idx) d.classList.add('active'); } }
-function showScreen(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
-function checkName(){ document.getElementById('startBtn').disabled=document.getElementById('nameIn').value.trim().length<2; }
-function tryStart(){ if(document.getElementById('nameIn').value.trim().length>=2) startGame(); }
-document.addEventListener('DOMContentLoaded',()=>{ updateAllText(); checkName(); });
+
+function updateChaos(){
+    let p = Math.min(G.chaos,100);
+    let col = p<34?'var(--green)':p<67?'var(--yellow)':p<90?'#ff6d00':'var(--red)';
+    document.getElementById('chaosBar').style.width = p+'%';
+    document.getElementById('chaosBar').style.background = col;
+    document.getElementById('chaosPct').style.color = col;
+    document.getElementById('chaosPct').textContent = Math.round(p)+'%';
+    let ai = Math.floor(p/20);
+    for(let i=0;i<5;i++){
+        let e = document.getElementById('ce'+i);
+        if(p>0 && i<=ai) e.classList.add('on');
+        else e.classList.remove('on');
+    }
+}
+
+function updateDots(){
+    for(let i=0;i<5;i++){
+        let d = document.getElementById('dot'+i);
+        d.className = 'dot';
+        if(i<G.idx) d.classList.add('done');
+        else if(i===G.idx) d.classList.add('active');
+    }
+}
+
+function showScreen(id){
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function checkName(){
+    document.getElementById('startBtn').disabled = document.getElementById('nameIn').value.trim().length<2;
+}
+function tryStart(){
+    if(document.getElementById('nameIn').value.trim().length>=2) startGame();
+}
+
+window.onload = () => {
+    for(let i=0;i<30;i++){
+        let p = document.createElement('div');
+        p.className = 'particle';
+        p.style.cssText = `left:${Math.random()*100}%;animation-duration:${5+Math.random()*10}s;animation-delay:${Math.random()*10}s;width:${1+Math.random()*4}px;height:${1+Math.random()*4}px;--dx:${(Math.random()-.5)*300}px;opacity:${.3+Math.random()*.4};background:${['var(--blue)','var(--green)','var(--purple)'][Math.floor(Math.random()*3)]}`;
+        document.getElementById('particles').appendChild(p);
+    }
+    checkName();
+};
 </script>
 </body>
 </html>
